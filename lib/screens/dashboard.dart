@@ -14,9 +14,12 @@ class Dashboard extends StatelessWidget {
       "Item 5": 8.2
     };
 
-    final double totalCFValue = 5000000;
-    final double totalPoints = 5000;
-    final String user = "John Doe";
+    double totalCFValue = 5000000;
+    double totalPoints = 5000;
+    String user = "John Doe";
+    int rank = 5;
+    double carbonEmissionSavingPercent = 65;
+    double carbonEmissionAmount = 50;
 
     return Scaffold(
       appBar: AppBar(
@@ -25,12 +28,12 @@ class Dashboard extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Top Coins and Profile
             Container(
-              margin: EdgeInsets.all(8),
-              padding: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               alignment: Alignment.topLeft,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,8 +77,8 @@ class Dashboard extends StatelessWidget {
 
             // Pie Chart
             Container(
-              margin: EdgeInsets.all(8),
-              padding: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: PieChart(
                 dataMap: dataMap,
                 animationDuration: Duration(milliseconds: 4000),
@@ -117,15 +120,193 @@ class Dashboard extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width*0.9,
               height: 5,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.green
               ),
             ),
 
             const SizedBox(height: 8,),
-            
+
+            // Plain Texts
+            // Column(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Container(
+            //       margin: const EdgeInsets.all(8),
+            //       padding: const EdgeInsets.all(8),
+            //       child: Row(
+            //         // mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Text(
+            //             "${rank}th",
+            //             style: TextStyle(
+            //               fontWeight: FontWeight.bold,
+            //               fontSize: 32,
+            //               color: Colors.green
+            //             ),
+            //           ),
+            //           SizedBox(width: 8,),
+            //           Expanded(
+            //             child: Text(
+            //               "Rank in leaederboard",
+            //               style: TextStyle(
+            //                 fontSize: 24,
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //     const SizedBox(height: 8,),
+            //     Container(
+            //       margin: const EdgeInsets.all(8),
+            //       padding: const EdgeInsets.all(8),
+            //       child: Row(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Text(
+            //             "$carbonEmissionSavingPercent%",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.bold,
+            //                 fontSize: 32,
+            //                 color: Colors.green
+            //             ),
+            //           ),
+            //           SizedBox(width: 8,),
+            //           Expanded(
+            //             child: Text(
+            //               "Increases in Carbon Emission Saving",
+            //               style: TextStyle(
+            //                 fontSize: 24,
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //     const SizedBox(height: 8,),
+            //     Container(
+            //       margin: const EdgeInsets.all(8),
+            //       padding: const EdgeInsets.all(8),
+            //       child: Row(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Text(
+            //             "$carbonEmissionAmount Kg",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.bold,
+            //                 fontSize: 32,
+            //                 color: Colors.green
+            //             ),
+            //           ),
+            //           SizedBox(width: 8,),
+            //           Expanded(
+            //             child: Text(
+            //               "Amount of carbon footprint emitted",
+            //               style: TextStyle(
+            //                 fontSize: 24,
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //     const SizedBox(height: 8,),
+            //   ],
+            // ),
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${rank}th",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.green
+                        ),
+                      ),
+                      SizedBox(width: 8,),
+                      Expanded(
+                        child: Text(
+                          "Rank in leaederboard",
+                          style: TextStyle(
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8,),
+                Container(
+                  margin: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "$carbonEmissionSavingPercent%",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.green
+                        ),
+                      ),
+                      SizedBox(width: 8,),
+                      Expanded(
+                        child: Text(
+                          "Increases in Carbon Emission Saving",
+                          style: TextStyle(
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8,),
+                Container(
+                  margin: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "$carbonEmissionAmount Kg",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.green
+                        ),
+                      ),
+                      SizedBox(width: 8,),
+                      Expanded(
+                        child: Text(
+                          "Amount of carbon footprint emitted",
+                          style: TextStyle(
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8,),
+              ],
+            ),
+
           ],
         ),
+
+
+
       ),
     );
   }
