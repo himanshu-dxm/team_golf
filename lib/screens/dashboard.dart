@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:sih_team_golf/utilities/commonStyles.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -38,28 +39,31 @@ class Dashboard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          totalPoints.toString(),
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        totalPoints.toString(),
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
                         ),
-                        // TODO : Add Coin or Out Token Image
-                        Icon(Icons.currency_bitcoin)
-                      ],
-                    ),
+                      ),
+                      // TODO : Add Coin or Out Token Image
+                      Icon(Icons.currency_bitcoin)
+                    ],
                   ),
-                  Container(
+                  // TODO : To make profile option
+                  GestureDetector(
+                    onTap: () {
+                      print("Profile Tapped");
+                      CommonStyles.snackBar(context, "Not Functional Yet");
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          user+" ",
+                          "$user ",
                           style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold
