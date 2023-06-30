@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sih_team_golf/screens/dashboard.dart';
 import 'package:sih_team_golf/screens/education.dart';
 import 'package:sih_team_golf/screens/games.dart';
+import 'package:sih_team_golf/screens/qrScanPage.dart';
 import 'package:sih_team_golf/screens/reels.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,6 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print("Scanner Tapped");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => QRScanPage())
+          );
         },
         tooltip: 'Scan',
         elevation: 2.0,

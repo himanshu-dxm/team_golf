@@ -9,6 +9,7 @@ class Dashboard extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Dashboard'),
       ),
+
     );
   }
 }
