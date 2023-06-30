@@ -5,11 +5,18 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, double> dataMap = {
+
+    };
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),
       ),
+      body: Stack(
+        children: [
 
+        ],
+      ),
     );
   }
 }
