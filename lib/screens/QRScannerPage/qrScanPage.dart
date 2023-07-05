@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:sih_team_golf/screens/QRScannerPage/components/QRView.dart';
+import 'package:sih_team_golf/screens/QRScannerPage/components/bottomButton.dart';
+import 'package:sih_team_golf/screens/QRScannerPage/components/controlButtons.dart';
 
 class QRScanPage extends StatefulWidget {
   const QRScanPage({super.key});
@@ -15,6 +17,11 @@ class _QRScanPageState extends State<QRScanPage> {
   QRViewController? controller;
   Barcode? barcode;
 
+  callBackFlash(controller) {
+    setState(() {
+
+    });
+  }
   callbackQRViewController(controller) {
     setState(() {
       this.controller = controller;
@@ -38,6 +45,15 @@ class _QRScanPageState extends State<QRScanPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios_new)
+          ),
+        ),
+
 
         // bottomNavigationBar: BottomAppBar(
         //   shape: CircularNotchedRectangle(),
@@ -156,13 +172,15 @@ class _QRScanPageState extends State<QRScanPage> {
             // buildQRView(context),
 
             QRViewer(qrKey: qrKey, callbackQRViewController: callbackQRViewController, callbackBarcode: callbackBarcode),
+
             Positioned(
               bottom: 10,
-              child:buildResult()
+              child:BottomButton(barcode: barcode,)
             ),
+
             Positioned(
               top: 10,
-              child: buildControlButtons()
+              child: ControlButtons(controller: controller,callbackFlash: callBackFlash)
             )
           ],
         ),
@@ -171,7 +189,7 @@ class _QRScanPageState extends State<QRScanPage> {
   }
   Widget buildControlButtons() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.white24
@@ -211,43 +229,49 @@ class _QRScanPageState extends State<QRScanPage> {
       ),
     );
   }
-  Widget buildResult() {
-    return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.white24
-      ),
-      child: Text(
-        barcode!=null ? 'Result : ${barcode!.code}'
-        :'Scan a Code!',
-        maxLines: 4,
-        style: TextStyle(
-          color: Colors.white
-        ),
-      ),
-    );
-  }
-  Widget buildQRView(BuildContext context) => QRView(
-    key: qrKey,
-    onQRViewCreated: onQRViewCreated,
-    overlay: QrScannerOverlayShape(
-      cutOutSize: MediaQuery.of(context).size.width*0.7,
-      borderWidth: 10,
-      borderRadius: 10,
-      borderLength: 30,
-      borderColor: Theme.of(context).primaryColor
-    ),
-  );
 
-  void onQRViewCreated(QRViewController controller) {
-    setState(() {
-      this.controller = controller;
-    });
-    
-    controller.scannedDataStream.listen((barcode) {
-      setState(() {
-        this.barcode = barcode;
-      });
-    });
-  }
+
+
+  // Widget buildResult() {
+  //   return Container(
+  //     padding: EdgeInsets.all(8),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white24
+  //     ),
+  //     child: Text(
+  //       barcode!=null ? 'Result : ${barcode!.code}'
+  //       :'Scan a Code!',
+  //       maxLines: 4,
+  //       style: TextStyle(
+  //         color: Colors.white
+  //       ),
+  //     ),
+  //   );
+  // }
+
+
+
+  // Widget buildQRView(BuildContext context) => QRView(
+  //   key: qrKey,
+  //   onQRViewCreated: onQRViewCreated,
+  //   overlay: QrScannerOverlayShape(
+  //     cutOutSize: MediaQuery.of(context).size.width*0.7,
+  //     borderWidth: 10,
+  //     borderRadius: 10,
+  //     borderLength: 30,
+  //     borderColor: Theme.of(context).primaryColor
+  //   ),
+  // );
+  //
+  // void onQRViewCreated(QRViewController controller) {
+  //   setState(() {
+  //     this.controller = controller;
+  //   });
+  //
+  //   controller.scannedDataStream.listen((barcode) {
+  //     setState(() {
+  //       this.barcode = barcode;
+  //     });
+  //   });
+  // }
 }
