@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/screens/leaderboard.dart';
 import 'package:sih_team_golf/utilities/themes.dart';
 
 import '../../../utilities/commonStyles.dart';
@@ -17,7 +19,7 @@ class Header {
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [Colors.lightGreen,Colors.green],
                     begin: Alignment.topRight,
                     end: Alignment.bottomCenter,
@@ -25,7 +27,7 @@ class Header {
                 // color: MyColors.primaryColor,
                 border: Border.all(width: 3),
                 borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurStyle: BlurStyle.solid,
                         blurRadius: 8
@@ -34,18 +36,20 @@ class Header {
               ),
               child: GestureDetector(
                 onTap: () {
-                  print("Profile Tapped");
+                  if (kDebugMode) {
+                    print("Profile Tapped");
+                  }
                   CommonStyles.snackBar(context, "Not Functional Yet");
                 },
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      child: Icon(
+                      child: const Icon(
                         Icons.account_circle_outlined
                       )
                     ),
-                    SizedBox(width: 2,),
+                    const SizedBox(width: 2,),
                     Text(
                       "$username ",
                       style: const TextStyle(
@@ -73,25 +77,31 @@ class Header {
                     blurRadius: 8
                   )
                 ],
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [Colors.lightGreen,Colors.green],
                     begin: Alignment.topRight,
                     end: Alignment.bottomCenter,
                   )
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    totalPoints.toString(),
-                    style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold
+              child: GestureDetector(
+                onTap: () {
+                  print("Points tapped");
+                  Navigator.push(context, MaterialPageRoute(builder: (builder)=> LeaderBoardScreen()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      totalPoints.toString(),
+                      style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
-                  ),
-                  // TODO : Add Coin or Out Token Image
-                  Icon(Icons.currency_bitcoin)
-                ],
+                    // TODO : Add Coin or Out Token Image
+                    const Icon(Icons.currency_bitcoin)
+                  ],
+                ),
               ),
             ),
 
