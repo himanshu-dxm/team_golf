@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sih_team_golf/screens/dashboard/dashboard.dart';
 import 'package:sih_team_golf/screens/education.dart';
 import 'package:sih_team_golf/screens/games.dart';
-import 'package:sih_team_golf/screens/QRScannerPage/qrScanPage.dart';
+import 'package:sih_team_golf/screens/qrScanner/qrScanPage.dart';
 import 'package:sih_team_golf/screens/reels.dart';
 
 class HomeScreen extends StatefulWidget {

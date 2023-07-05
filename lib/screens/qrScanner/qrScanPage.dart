@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:sih_team_golf/screens/QRScannerPage/components/QRView.dart';
-import 'package:sih_team_golf/screens/QRScannerPage/components/bottomButton.dart';
-import 'package:sih_team_golf/screens/QRScannerPage/components/controlButtons.dart';
+
+import 'components/QRView.dart';
+import 'components/bottomButton.dart';
+import 'components/controlButtons.dart';
 
 class QRScanPage extends StatefulWidget {
   const QRScanPage({super.key});
