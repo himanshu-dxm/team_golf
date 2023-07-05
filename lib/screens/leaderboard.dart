@@ -15,17 +15,23 @@ class LeaderBoardScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
+          title: const Text('LeaderBoard'),
           elevation: 0.0,
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-          actions: [
-            const Icon(
-              Icons.grid_view,
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
               color: Colors.white,
             ),
-          ],
+          ),
+          // actions: [
+          //   const Icon(
+          //     Icons.grid_view,
+          //     color: Colors.white,
+          //   ),
+          // ],
         ),
         body: SingleChildScrollView(
           child: Padding(
