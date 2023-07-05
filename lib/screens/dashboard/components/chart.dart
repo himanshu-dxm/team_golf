@@ -33,7 +33,12 @@ class Chart {
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: Colors.blue,
+          gradient: const LinearGradient(
+            colors: [Colors.lightGreen,Colors.green],
+            begin: Alignment.topRight,
+            end: Alignment.bottomCenter,
+          ),
+          // color: Colors.blue,
           border: Border.all(width: 1),
           borderRadius: BorderRadius.circular(18),
           boxShadow: const [
@@ -43,52 +48,61 @@ class Chart {
             )
           ]
       ),
-      child: Center(
-        child: PieChart(
-          dataMap: dataMap,
+      child: Column(
+        children: [
 
-          colorList: _colorList,
+          PieChart(
+            dataMap: dataMap,
 
-          chartRadius: MediaQuery.of(context).size.width / 2,
+            colorList: _colorList,
 
-          ringStrokeWidth: 24,
+            chartRadius: MediaQuery.of(context).size.width / 2,
 
-          animationDuration: const Duration(seconds: 3),
+            ringStrokeWidth: 24,
 
-          // chartLegendSpacing: 40,
+            animationDuration: const Duration(seconds: 3),
 
-          chartType: ChartType.ring,
+            // chartLegendSpacing: 40,
 
-          centerText: "5M+ of\nSaved Carbon Emission",
+            chartType: ChartType.ring,
 
-          centerTextStyle: const TextStyle(
-              fontSize: 16,
-              color: Colors.black,
-              fontWeight: FontWeight.w600
-          ),
+            centerText: "5M+ of\nSaved Carbon Emission",
 
-          legendOptions: const LegendOptions(
-            showLegendsInRow: true,
-            legendPosition: LegendPosition.bottom,
-            showLegends: true,
-            legendShape: BoxShape.rectangle,
-            legendTextStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-              color: Colors.white54
+            centerTextStyle: const TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.w600
             ),
+
+            legendOptions: const LegendOptions(
+              showLegendsInRow: true,
+              legendPosition: LegendPosition.bottom,
+              showLegends: true,
+              legendShape: BoxShape.rectangle,
+              legendTextStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: Colors.white54
+              ),
+            ),
+            chartValuesOptions: const ChartValuesOptions(
+              showChartValueBackground: false,
+              showChartValues: true,
+              showChartValuesInPercentage: true,
+              showChartValuesOutside: true,
+              decimalPlaces: 2,
+            ),
+            gradientList: _gradientList,
+            baseChartColor: Colors.white,
+            chartLegendSpacing: 32,
           ),
-          chartValuesOptions: const ChartValuesOptions(
-            showChartValueBackground: false,
-            showChartValues: true,
-            showChartValuesInPercentage: true,
-            showChartValuesOutside: true,
-            decimalPlaces: 2,
-          ),
-          gradientList: _gradientList,
-          baseChartColor: Colors.white,
-          chartLegendSpacing: 32,
-        ),
+
+          Container(
+            child: Text(
+              'Carbon Emissions'
+            ),
+          )
+        ],
       ),
     );
   }

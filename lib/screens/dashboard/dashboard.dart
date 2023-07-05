@@ -58,7 +58,15 @@ class Dashboard extends StatelessWidget {
 
                 const SizedBox(height: 8,),
 
-                // Plain Texts
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    StatCards.card(context, rank.toString()+"th", "Position", "+1 from yesterday"),
+
+                    StatCards.card(context, carbonEmissionAmount.toString()+"Kg", "CO2 emitted", "56% increase since last month"),
+                  ],
+                ),
+
                 // Column(
                 //   mainAxisAlignment: MainAxisAlignment.center,
                 //   children: [
@@ -71,9 +79,9 @@ class Dashboard extends StatelessWidget {
                 //           Text(
                 //             "${rank}th",
                 //             style: TextStyle(
-                //               fontWeight: FontWeight.bold,
-                //               fontSize: 32,
-                //               color: Colors.green
+                //                 fontWeight: FontWeight.bold,
+                //                 fontSize: 32,
+                //                 color: Colors.green
                 //             ),
                 //           ),
                 //           SizedBox(width: 8,),
@@ -145,95 +153,6 @@ class Dashboard extends StatelessWidget {
                 //     const SizedBox(height: 8,),
                 //   ],
                 // ),
-
-                StatCards.card(context, rank.toString(), "Leaderboard Rank", ""),
-
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.all(8),
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "${rank}th",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 32,
-                                color: Colors.green
-                            ),
-                          ),
-                          SizedBox(width: 8,),
-                          Expanded(
-                            child: Text(
-                              "Rank in leaederboard",
-                              style: TextStyle(
-                                fontSize: 24,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 8,),
-                    Container(
-                      margin: const EdgeInsets.all(8),
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "$carbonEmissionSavingPercent%",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 32,
-                                color: Colors.green
-                            ),
-                          ),
-                          SizedBox(width: 8,),
-                          Expanded(
-                            child: Text(
-                              "Increases in Carbon Emission Saving",
-                              style: TextStyle(
-                                fontSize: 24,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 8,),
-                    Container(
-                      margin: const EdgeInsets.all(8),
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "$carbonEmissionAmount Kg",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 32,
-                                color: Colors.green
-                            ),
-                          ),
-                          SizedBox(width: 8,),
-                          Expanded(
-                            child: Text(
-                              "Amount of carbon footprint emitted",
-                              style: TextStyle(
-                                fontSize: 24,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 8,),
-                  ],
-                ),
 
               ],
             ),

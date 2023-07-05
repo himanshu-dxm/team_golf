@@ -17,7 +17,12 @@ class Header {
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: MyColors.primaryColor,
+                  gradient: LinearGradient(
+                    colors: [Colors.lightGreen,Colors.green],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomCenter,
+                  ),
+                // color: MyColors.primaryColor,
                 border: Border.all(width: 3),
                 borderRadius: BorderRadius.circular(10),
                   boxShadow: [
@@ -59,7 +64,7 @@ class Header {
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                  color: MyColors.primaryColor,
+                  // color: MyColors.primaryColor,
                   border: Border.all(width: 3),
                   borderRadius: BorderRadius.circular(10),
                 boxShadow: const [
@@ -67,7 +72,12 @@ class Header {
                     blurStyle: BlurStyle.solid,
                     blurRadius: 8
                   )
-                ]
+                ],
+                  gradient: LinearGradient(
+                    colors: [Colors.lightGreen,Colors.green],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomCenter,
+                  )
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,

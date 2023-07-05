@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sih_team_golf/screens/dashboard/dashboard.dart';
 import 'package:sih_team_golf/screens/education.dart';
 import 'package:sih_team_golf/screens/games.dart';
-import 'package:sih_team_golf/screens/qrScanPage.dart';
+import 'package:sih_team_golf/screens/QRScannerPage/qrScanPage.dart';
 import 'package:sih_team_golf/screens/reels.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -52,14 +52,15 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const Icon(Icons.qr_code_scanner),
       ),
       bottomNavigationBar:BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         color: Colors.blueGrey,
         child: Container(
+          width: MediaQuery.of(context).size.width,
           // padding: EdgeInsets.all(8),
           height: 60,
           child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MaterialButton(
                 onPressed: () {
@@ -77,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Dashboard',
                       style: TextStyle(
                         color: currentTab==0?Colors.green : Colors.grey,
+                        fontSize: 12
                       ),
                     )
                   ],
@@ -99,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Games',
                       style: TextStyle(
                         color: currentTab==1?Colors.green : Colors.grey,
+                          fontSize: 12
                       ),
                     )
                   ],
@@ -122,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Educational',
                       style: TextStyle(
                         color: currentTab==2?Colors.green : Colors.grey,
+                          fontSize: 12
                       ),
                     )
                   ],
@@ -143,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Reels',
                       style: TextStyle(
                         color: currentTab==3?Colors.green : Colors.grey,
+                          fontSize: 12
                       ),
                     )
                   ],
