@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sih_team_golf/screens/dashboard.dart';
+import 'package:sih_team_golf/screens/dashboard/dashboard.dart';
 import 'package:sih_team_golf/screens/education.dart';
 import 'package:sih_team_golf/screens/games.dart';
 import 'package:sih_team_golf/screens/qrScanPage.dart';
