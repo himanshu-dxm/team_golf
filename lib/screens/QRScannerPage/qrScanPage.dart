@@ -174,7 +174,7 @@ class _QRScanPageState extends State<QRScanPage> {
             QRViewer(qrKey: qrKey, callbackQRViewController: callbackQRViewController, callbackBarcode: callbackBarcode),
 
             Positioned(
-              bottom: 10,
+              bottom: 15,
               child:BottomButton(barcode: barcode,)
             ),
 
@@ -187,48 +187,50 @@ class _QRScanPageState extends State<QRScanPage> {
       ),
     );
   }
-  Widget buildControlButtons() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.white24
-      ),
-      child: Row(
-        children: [
-          IconButton(
-              onPressed: () async {
-                  await controller?.toggleFlash();
-                setState(() {
 
-                });
-              },
-              icon: FutureBuilder<bool?>(
-                future: controller?.getFlashStatus(),
-                builder: (context, snapshot) {
-                  if(snapshot.data!=null) {
-                    return Icon(
-                      snapshot.data! ? Icons.flash_on : Icons.flash_off
-                    );
-                  } else {
-                    return Container();
-                  }
-                },
-              )
-          ),
-          IconButton(
-              onPressed: () async {
-                await controller?.flipCamera();
-                setState(() {
 
-                });
-              },
-              icon: Icon(Icons.flip_camera_android)
-          )
-        ],
-      ),
-    );
-  }
+  // Widget buildControlButtons() {
+  //   return Container(
+  //     padding: const EdgeInsets.symmetric(horizontal: 16),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(8),
+  //       color: Colors.white24
+  //     ),
+  //     child: Row(
+  //       children: [
+  //         IconButton(
+  //             onPressed: () async {
+  //                 await controller?.toggleFlash();
+  //               setState(() {
+  //
+  //               });
+  //             },
+  //             icon: FutureBuilder<bool?>(
+  //               future: controller?.getFlashStatus(),
+  //               builder: (context, snapshot) {
+  //                 if(snapshot.data!=null) {
+  //                   return Icon(
+  //                     snapshot.data! ? Icons.flash_on : Icons.flash_off
+  //                   );
+  //                 } else {
+  //                   return Container();
+  //                 }
+  //               },
+  //             )
+  //         ),
+  //         IconButton(
+  //             onPressed: () async {
+  //               await controller?.flipCamera();
+  //               setState(() {
+  //
+  //               });
+  //             },
+  //             icon: Icon(Icons.flip_camera_android)
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
 
 

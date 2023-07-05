@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:sih_team_golf/screens/productDetailsScreen.dart';
+import 'package:sih_team_golf/utilities/commonStyles.dart';
 
 class BottomButton extends StatelessWidget {
   Barcode? barcode;
@@ -12,14 +14,39 @@ class BottomButton extends StatelessWidget {
         decoration: const BoxDecoration(
             color: Colors.white24
         ),
-        child: Text(
-          barcode!=null ? 'Result : ${barcode!.code}'
+        child: TextButton(
+          child:Text(          barcode!=null ? 'Result : ${barcode!.code}'
               :'Scan a Code!',
-          maxLines: 4,
+          maxLines: 8,
           style: const TextStyle(
               color: Colors.white
-          ),
+          )),
+          onPressed: () {
+            print("Button scanner page pressed ");
+            if(barcode!=null) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (builder) =>
+                      ProductDetails(pid: barcode!.code.toString()))
+              );
+            }
+          },
         ),
       );
     }
-  }
+}
+
+/**
+ *
+    onTap: () {
+    if (barcode != null) {
+    print("Barcode Value: ${barcode!.code}");
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (builder) =>
+    ProductDetails(pid: barcode!.code.toString()))
+    );
+    }
+    },
+ */
+
