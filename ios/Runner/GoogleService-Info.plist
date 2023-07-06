@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>874486662058-amre9uqq5gqf0k57idplouj84kvion6b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.874486662058-amre9uqq5gqf0k57idplouj84kvion6b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCDUkbBz0mnMWQ3NvetlFAGpzwRsFwjJEM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>874486662058</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.sihTeamGolf</string>
+	<key>PROJECT_ID</key>
+	<string>carbon-footprint-monitor</string>
+	<key>STORAGE_BUCKET</key>
+	<string>carbon-footprint-monitor.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:874486662058:ios:48d6b4793351188f3a21d3</string>
+</dict>
+</plist>
