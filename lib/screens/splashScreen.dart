@@ -101,61 +101,75 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
-        child: AnimatedBuilder(
-          animation: _animation,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _animation.value,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  // Your logo widget
-                  // Image(
-                  //   image: AssetImage("assets/icon/splash.png")
-                  // ),
-                  // Fading circles
-                  Positioned(
-                    top: 50,
-                    child: Container(
-                      width: 100*_animation.value,
-                      height: 100*_animation.value,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xB5D4B3),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 120,
-                    child: Container(
-                      width: 100*_animation.value,
-                      height: 100*_animation.value,
-                      decoration:const  BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0x91BE8c),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 190,
-                    child: Container(
-                      width: 100*_animation.value,
-                      height: 100*_animation.value,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0x6AA063),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
+        child: Container(
+          width: MediaQuery.of(context).size.width*0.8,
+          decoration: const BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/icon/splash.png")
+              )
+          ),
         ),
       ),
     );
+
+
+
+    // return Scaffold(
+    //   backgroundColor: Colors.white,
+    //   body: Center(
+    //     child: AnimatedBuilder(
+    //       animation: _animation,
+    //       builder: (context, child) {
+    //         return Opacity(
+    //           opacity: _animation.value,
+    //           child: Stack(
+    //             alignment: Alignment.center,
+    //             children: [
+    //               // Your logo widget
+    //               // Image(
+    //               //   image: AssetImage("assets/icon/splash.png")
+    //               // ),
+    //               // Fading circles
+    //               Positioned(
+    //                 top: 50,
+    //                 child: Container(
+    //                   width: 100*_animation.value,
+    //                   height: 100*_animation.value,
+    //                   decoration: const BoxDecoration(
+    //                     shape: BoxShape.circle,
+    //                     color: Color(0xB5D4B3),
+    //                   ),
+    //                 ),
+    //               ),
+    //               Positioned(
+    //                 top: 120,
+    //                 child: Container(
+    //                   width: 100*_animation.value,
+    //                   height: 100*_animation.value,
+    //                   decoration:const  BoxDecoration(
+    //                     shape: BoxShape.circle,
+    //                     color: Color(0x91BE8c),
+    //                   ),
+    //                 ),
+    //               ),
+    //               Positioned(
+    //                 top: 190,
+    //                 child: Container(
+    //                   width: 100*_animation.value,
+    //                   height: 100*_animation.value,
+    //                   decoration: const BoxDecoration(
+    //                     shape: BoxShape.circle,
+    //                     color: Color(0x6AA063),
+    //                   ),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         );
+    //       },
+    //     ),
+    //   ),
+    // );
   }
 }
 

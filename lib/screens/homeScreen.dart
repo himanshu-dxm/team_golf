@@ -3,7 +3,7 @@ import 'package:sih_team_golf/screens/dashboard/dashboard.dart';
 import 'package:sih_team_golf/screens/education.dart';
 import 'package:sih_team_golf/screens/games.dart';
 import 'package:sih_team_golf/screens/qrScanner/qrScanPage.dart';
-import 'package:sih_team_golf/screens/reels.dart';
+import 'package:sih_team_golf/screens/Reels/reels.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
