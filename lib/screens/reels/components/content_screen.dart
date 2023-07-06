@@ -25,13 +25,15 @@ class _ContentScreenState extends State<ContentScreen> {
   }
 
   Future initializePlayer() async {
-    _videoPlayerController = VideoPlayerController.network(widget.src!);
+    _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.src!));
+    // _videoPlayerController = VideoPlayerController.network(widget.src!);
     await Future.wait([_videoPlayerController.initialize()]);
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: true,
       showControls: false,
       looping: true,
+      fullScreenByDefault: true
     );
     setState(() {});
   }
@@ -51,23 +53,24 @@ class _ContentScreenState extends State<ContentScreen> {
         _chewieController != null &&
             _chewieController!.videoPlayerController.value.isInitialized
             ? GestureDetector(
-          onDoubleTap: () {
-            setState(() {
-              _liked = !_liked;
-            });
-          },
-          child: Chewie(
-            controller: _chewieController!,
-          ),
-        )
+                onDoubleTap: () {
+                  print("Double Tapped");
+                  // setState(() {
+                  //   _liked = !_liked;
+                  // });
+                },
+                child: Chewie(
+                  controller: _chewieController!,
+                ),
+              )
             : Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 10),
-            Text('Loading...')
-          ],
-        ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 10),
+                  Text('Loading...')
+                ],
+              ),
         if (_liked)
           Center(
             child: LikeIcon(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LikeIcon extends StatelessWidget {
+
   Future<int> tempFuture() async {
     return Future.delayed(Duration(seconds: 1));
   }

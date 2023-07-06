@@ -1,6 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-
 import 'components/content_screen.dart';
 
 class Reels extends StatelessWidget {
@@ -12,6 +11,7 @@ class Reels extends StatelessWidget {
     'https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4',
     'https://assets.mixkit.co/videos/preview/mixkit-womans-feet-splashing-in-the-pool-1261-large.mp4',
     'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4'
+    'https://www.youtube.com/watch?v=uF0dAMDbenQ'
   ];
   @override
   Widget build(BuildContext context) {
@@ -30,15 +30,16 @@ class Reels extends StatelessWidget {
                 itemCount: videos.length,
                 scrollDirection: Axis.vertical,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Flutter Shorts',
+                      'Reels',
                       style: TextStyle(
                         fontSize: 22,
+                        color: Colors.white,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -53,3 +54,5 @@ class Reels extends StatelessWidget {
     );
   }
 }
+
+// referenced from https://www.youtube.com/watch?v=sFGAARggNJA

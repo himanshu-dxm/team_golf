@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/utilities/commonStyles.dart';
 
 class OptionsScreen extends StatelessWidget {
   @override
@@ -22,12 +23,15 @@ class OptionsScreen extends StatelessWidget {
                         radius: 16,
                       ),
                       SizedBox(width: 6),
-                      Text('flutter_developer02'),
+                      Text('creator_name'),
                       SizedBox(width: 10),
                       Icon(Icons.verified, size: 15),
                       SizedBox(width: 6),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                          // CommonStyles.snackBar(context, "You can follow the creator");
+                        },
                         child: Text(
                           'Follow',
                           style: TextStyle(
@@ -38,7 +42,7 @@ class OptionsScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(width: 6),
-                  Text('Flutter is beautiful and fast 💙❤💛 ..'),
+                  Text('Description about the video 💙❤💛 ..'),
                   SizedBox(height: 10),
                   Row(
                     children: [
@@ -63,8 +67,9 @@ class OptionsScreen extends StatelessWidget {
                     transform: Matrix4.rotationZ(5.8),
                     child: Icon(Icons.send),
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 20),
                   Icon(Icons.more_vert),
+                  SizedBox(height: 10,)
                 ],
               )
             ],

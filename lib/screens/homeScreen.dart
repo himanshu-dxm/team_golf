@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Dashboard(),
     const Games(),
     const Education(),
-    const Reels()
+     Reels()
   ];
 
   Widget currentScreen = const Dashboard();
