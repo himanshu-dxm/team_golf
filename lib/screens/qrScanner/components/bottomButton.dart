@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:sih_team_golf/screens/productDetailsScreen.dart';
+import 'package:sih_team_golf/screens/productDetails/productDetailsScreen.dart';
 import 'package:sih_team_golf/utilities/commonStyles.dart';
 
 class BottomButton extends StatelessWidget {

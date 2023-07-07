@@ -4,12 +4,17 @@ import 'package:get/get.dart';
 import 'package:sih_team_golf/firebase_options.dart';
 import 'package:sih_team_golf/helper/auth.dart';
 import 'package:sih_team_golf/screens/login/login.dart';
+import 'package:sih_team_golf/screens/productDetails/productDetailsScreen.dart';
 
 import 'screens/splashScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((value) => Get.put(AuthenticationRepository()));
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).
+  then((value) =>
+      print(value)
+      // Get.put(AuthenticationRepository())
+  );
   runApp(const MyApp());
 }
 
@@ -24,7 +29,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: LoginPage(),
+      // home: LoginPage(),
+      home: ProductDetails(pid: '12345',),
       // home: SplashScreen(),
     );
   }
