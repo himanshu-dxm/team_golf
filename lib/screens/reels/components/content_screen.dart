@@ -33,7 +33,7 @@ class _ContentScreenState extends State<ContentScreen> {
       autoPlay: true,
       showControls: false,
       looping: true,
-      fullScreenByDefault: true
+      fullScreenByDefault: false
     );
     setState(() {});
   }

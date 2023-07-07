@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:sih_team_golf/screens/homeScreen.dart';
+import 'package:sih_team_golf/screens/login/login.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -7,6 +9,18 @@ class AuthenticationRepository extends GetxController {
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
   var verificationId = ''.obs;
+
+
+  @override
+  void onReady() {
+    firebaseUser = Rx<User?>(_auth.currentUser);
+    firebaseUser.bindStream(_auth.userChanges());
+    ever(firebaseUser, _setInitialScreen);
+  }
+
+  _setInitialScreen(User? user) {
+    user == null ? Get.offAll(() => const LoginPage()) : Get.offAll(()=> const HomeScreen());
+  }
 
   Future<void> phoneAuthentication(String phoneNo) async {
     await _auth.verifyPhoneNumber(
@@ -18,7 +32,8 @@ class AuthenticationRepository extends GetxController {
           if (e.code == 'invalid-phone-number') {
             Get.snackbar('Error', 'The provided phone number is not valid.');
           } else {
-            Get.snackbar('Error', 'Something went wrong. Try Again !!');
+            print(e.code);
+            Get.snackbar('Error', ' ${e.code}');
           }
         },
         codeSent: (verificationId, resendToken) {
@@ -37,6 +52,9 @@ class AuthenticationRepository extends GetxController {
 
    return credentials.user != null ? true : false;
   }
+
+  Future<void> logout() async => await _auth.signOut();
+
 }
 
 // on the sign in button we just need to call

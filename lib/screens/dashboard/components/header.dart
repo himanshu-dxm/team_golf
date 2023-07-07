@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/helper/auth.dart';
 import 'package:sih_team_golf/screens/leaderboard.dart';
 import 'package:sih_team_golf/utilities/themes.dart';
 
@@ -39,7 +40,8 @@ class Header {
                   if (kDebugMode) {
                     print("Profile Tapped");
                   }
-                  CommonStyles.snackBar(context, "Not Functional Yet");
+                  AuthenticationRepository.instance.logout();
+                  // CommonStyles.snackBar(context, "Not Functional Yet");
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:sih_team_golf/helper/controller/sign_up_controller.dart';
+import 'package:sih_team_golf/screens/login/otpScreen.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -12,15 +15,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   final _formKey = GlobalKey<FormState>();
-
-  TextEditingController phoneNumberController = TextEditingController();
+  final controller = Get.put(SignUpController());
 
 
   void authenticate() {
-    String phoneNumber = "+91"+phoneNumberController.text.toString();
-    print(phoneNumber);
     if(_formKey.currentState!.validate()) {
-      print("validating data");
+      print("validating data and sending otp");
+      String phoneNo = "+91${controller.phoneNumberController.text.trim()}";
+      SignUpController.instance.phoneAuthentication(phoneNo);
+      Get.to(() => OTPScreen(phoneNumber: phoneNo));
     } else {
       print("Error Occurred");
     }
@@ -31,12 +34,13 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
     print("Disposing");
-    phoneNumberController.dispose();
+    // controller.phoneNumberController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
@@ -47,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               // Logo
               const Image(
                 image: AssetImage(
-                  'assets/icon/sihlogo.png',
+                  'assets/icon/splash.png',
                 ),
                 height: 100,
               ),
@@ -68,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 32,),
+
               // Phone Number Field
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -98,10 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                           }
                           return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             border: InputBorder.none,
                             hintText: " Enter Phone",
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400
@@ -113,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: const [
+                                  children: [
                                     Icon(Icons.call,size: 18,),
                                     SizedBox(width: 4,),
                                     Text(
@@ -131,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         keyboardType: TextInputType.number,
                         // maxLength: 10,
-                        controller: phoneNumberController,
+                        controller: controller.phoneNumberController,
                         inputFormatters: [
                           LengthLimitingTextInputFormatter(10),
                           FilteringTextInputFormatter.digitsOnly,
@@ -146,11 +151,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: GestureDetector(
                   onTap: () {
-                    // authenticate();
                     print("Login Tapped");
                     authenticate();
-                    // Navigator.push(context, MaterialPageRoute(builder: (_)=>const MapScreen()));
-                    // authenticate();
+
                   },
                   child: Container(
                     padding: const EdgeInsets.all(20.0),
@@ -161,36 +164,6 @@ class _LoginPageState extends State<LoginPage> {
                     child: const Center(
                         child: Text(
                           "Sign In",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        )
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24,),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: GestureDetector(
-                  onTap: () {
-                    // authenticate();
-                    print("Login Tapped");
-                    // authenticate();
-                    // Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignInGoogle()));
-                    // authenticate();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(20.0),
-                    decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(12)
-                    ),
-                    child: const Center(
-                        child: Text(
-                          "Go back to regular user login",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
