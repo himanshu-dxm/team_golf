@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "874486662058-l4trbpkv2h4fm43h99odui45hsimg0ef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sih_team_golf",
+            "certificate_hash": "fe9d1639d4ed0ca987d39e504bda8ef5a3480893"
+          }
+        },
+        {
           "client_id": "874486662058-7r4dq3je137jcrigi39rnu7mu3sbjap6.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "874486662058-7r4dq3je137jcrigi39rnu7mu3sbjap6.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "874486662058-amre9uqq5gqf0k57idplouj84kvion6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sihTeamGolf"
+              }
             }
           ]
         }

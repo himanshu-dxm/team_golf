@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,41 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA0zcgBJgH0J0r36q6GtIQr4tUl3El0b5k',
-    appId: '1:874486662058:web:c318aa8d795fbbbc3a21d3',
-    messagingSenderId: '874486662058',
-    projectId: 'carbon-footprint-monitor',
-    authDomain: 'carbon-footprint-monitor.firebaseapp.com',
-    storageBucket: 'carbon-footprint-monitor.appspot.com',
-    measurementId: 'G-WGME7QQK4T',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA7P4o8zqFOKCc43YYCQHdRHy48Uu8xnk8',
     appId: '1:874486662058:android:98d236ad33a18ff73a21d3',
     messagingSenderId: '874486662058',
     projectId: 'carbon-footprint-monitor',
     storageBucket: 'carbon-footprint-monitor.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCDUkbBz0mnMWQ3NvetlFAGpzwRsFwjJEM',
-    appId: '1:874486662058:ios:48d6b4793351188f3a21d3',
-    messagingSenderId: '874486662058',
-    projectId: 'carbon-footprint-monitor',
-    storageBucket: 'carbon-footprint-monitor.appspot.com',
-    iosClientId: '874486662058-amre9uqq5gqf0k57idplouj84kvion6b.apps.googleusercontent.com',
-    iosBundleId: 'com.example.sihTeamGolf',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCDUkbBz0mnMWQ3NvetlFAGpzwRsFwjJEM',
-    appId: '1:874486662058:ios:48d6b4793351188f3a21d3',
-    messagingSenderId: '874486662058',
-    projectId: 'carbon-footprint-monitor',
-    storageBucket: 'carbon-footprint-monitor.appspot.com',
-    iosClientId: '874486662058-amre9uqq5gqf0k57idplouj84kvion6b.apps.googleusercontent.com',
-    iosBundleId: 'com.example.sihTeamGolf',
   );
 }

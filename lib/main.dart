@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sih_team_golf/screens/login.dart';
+import 'package:sih_team_golf/firebase_options.dart';
+import 'package:sih_team_golf/screens/login/login.dart';
 
 import 'screens/splashScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
