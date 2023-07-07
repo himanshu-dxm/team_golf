@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/screens/productCFDetail/productCFDetail.dart';
 
 import '../../../model/Product.dart';
 import '../../../utilities/size_config.dart';
@@ -25,8 +26,22 @@ class Body extends StatelessWidget {
               ProductDescription(
                 product: product,
                 pressOnSeeMore: () {
-
+                  print("See More Tapped");
+                  // ProductCF(product: this.product,);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (ctx) => ProductCF(product: this.product))
+                  );
                 },
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (ctx) => ProductCF(product: this.product))
+                    );
+                  },
+                  child: Text('Check Carbon Footprints!')
               ),
               TopRoundedContainer(
                 color: Color(0xFFF6F7F9),

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../model/Product.dart';
 import '../../../utilities/size_config.dart';
+import '../../productCFDetail/productCFDetail.dart';
 
 class ProductDescription extends StatelessWidget {
   const ProductDescription({
@@ -65,7 +66,7 @@ class ProductDescription extends StatelessWidget {
           ),
           child: GestureDetector(
             onTap: () {
-
+              // ProductCF(product: this.product);
             },
             child: Row(
               children: [
