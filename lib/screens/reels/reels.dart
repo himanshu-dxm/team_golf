@@ -10,8 +10,8 @@ class Reels extends StatelessWidget {
     'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
     'https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4',
     'https://assets.mixkit.co/videos/preview/mixkit-womans-feet-splashing-in-the-pool-1261-large.mp4',
-    'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4'
-    'https://www.youtube.com/watch?v=uF0dAMDbenQ'
+    'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4',
+    'https://firebasestorage.googleapis.com/v0/b/carbon-footprint-monitor.appspot.com/o/reelsContent%2Fdefinition-of-a-perfect-ultimate-1280-ytshorts.savetube.me.mp4?alt=media&token=6e643618-8f58-4118-94bb-626a623c95fa'
   ];
   @override
   Widget build(BuildContext context) {

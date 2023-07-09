@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sih_team_golf/firebase_options.dart';
 import 'package:sih_team_golf/helper/auth.dart';
+import 'package:sih_team_golf/screens/homeScreen.dart';
 import 'package:sih_team_golf/screens/login/login.dart';
 import 'package:sih_team_golf/screens/productDetails/productDetailsScreen.dart';
+import 'package:sih_team_golf/services/getProductData.dart';
 
 import 'screens/splashScreen.dart';
 
@@ -15,7 +17,9 @@ void main() {
       print(value)
       // Get.put(AuthenticationRepository())
   );
-  runApp(const MyApp());
+  JSONDetails.getProductData("bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q");
+  
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -30,8 +34,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       // home: LoginPage(),
-      home: ProductDetails(pid: '12345',),
+      // home: ProductDetails(pid: '12345',),
       // home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

@@ -21,7 +21,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   }
 
-  Product _product = demoProducts[0];
+  Product _product = demoProduct;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

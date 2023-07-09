@@ -1,28 +1,52 @@
 import 'package:flutter/material.dart';
 
 class Product {
-  final int id;
-  final String title, description;
-  final List<String> images;
+  final String productName, description;
+  final bool isRawMaterial;
+  final String weight,manufacturingAddress,productImage;
+  final double carbonFootPrint,rating;
   final List<Color> colors;
-  final double rating, price;
-  final bool isFavourite, isPopular;
+  final List<String> images;
 
   Product({
-    required this.id,
-    required this.images,
-    required this.colors,
-    this.rating = 0.0,
-    this.isFavourite = false,
-    this.isPopular = false,
-    required this.title,
-    required this.price,
+    required this.carbonFootPrint,
+    required this.isRawMaterial,
+    required this.manufacturingAddress,
+    required this.productImage,
+    required this.productName,
     required this.description,
+    required this.weight,
+    this.rating = 4.8,
+    required this.colors,
+    required this.images,
   });
 }
 
-// Our demo Products
+Product demoProduct = Product(
+  productName: "Tata Nano",
+  description: "Ev Car",
+  isRawMaterial: false,
+  weight: "700",
+  carbonFootPrint: 120,
+  manufacturingAddress: "Gujrat",
+  productImage:
+      "https://firebasestorage.googleapis.com/v0/b/carbon-footprint-monitor.appspot.com/o/productImage%2FGL2tpgUlm6Bk1aj7udd5.png?alt=media&token=8c49af2e-c448-4b6d-9ade-756332b8869f",
+  images: [
+    "assets/images/ps4_console_white_1.png",
+    "assets/images/ps4_console_white_2.png",
+    "assets/images/ps4_console_white_3.png",
+    "assets/images/ps4_console_white_4.png",
+  ],
+  colors: [
+    Color(0xFFF6625E),
+    Color(0xFF836DB8),
+    Color(0xFFDECB9C),
+    Colors.white,
+  ],
+);
 
+// Our demo Products
+/*
 List<Product> demoProducts = [
   Product(
     id: 1,
@@ -101,3 +125,6 @@ List<Product> demoProducts = [
 
 const String description =
     "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
+
+
+ */
