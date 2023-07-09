@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sih_team_golf/screens/dashboard/dashboard.dart';
 import 'package:sih_team_golf/screens/dashboard1/dashboard1.dart';
-import 'package:sih_team_golf/screens/education.dart';
+import 'package:sih_team_golf/screens/profile.dart';
 import 'package:sih_team_golf/screens/games.dart';
 import 'package:sih_team_golf/screens/qrScanner/qrScanPage.dart';
 import 'package:sih_team_golf/screens/Reels/reels.dart';
@@ -19,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> screens = [
     const Dashboard1(),
     const Games(),
-    const Education(),
-     Reels()
+    const Profile(),
+    Reels()
   ];
 
   Widget currentScreen = const Dashboard1();
@@ -63,9 +63,11 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+
+              // Dashboard
               MaterialButton(
                 onPressed: () {
-                  print("Button1 Pressed");
+                  print("Dashboard Pressed");
                   setState(() {
                     currentScreen = Dashboard1();
                     currentTab = 0;
@@ -84,11 +86,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-
               ),
+
+
+              // Games
               MaterialButton(
                 onPressed: () {
-                  print("Button2 Pressed");
+                  print("Games Pressed");
                   setState(() {
                     currentScreen = Games();
                     currentTab = 1;
@@ -109,35 +113,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
               ),
+
+
+              // Reels
               MaterialButton(
                 onPressed: () {
                   print("Button3 Pressed");
                   setState(() {
-                    currentScreen = Education();
-                    currentTab = 2;
-                  });
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.library_books_outlined ,
-                      color: currentTab==2?Colors.green : Colors.grey,),
-                    Text(
-                      'Educational',
-                      style: TextStyle(
-                        color: currentTab==2?Colors.green : Colors.grey,
-                          fontSize: 12
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  print("Button4 Pressed");
-                  setState(() {
                     currentScreen = Reels();
-                    currentTab = 3;
+                    currentTab = 2;
                   });
                 },
                 child: Column(
@@ -147,14 +131,41 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       'Reels',
                       style: TextStyle(
-                        color: currentTab==3?Colors.green : Colors.grey,
+                          color: currentTab==3?Colors.green : Colors.grey,
                           fontSize: 12
                       ),
                     )
                   ],
                 ),
 
-              )
+              ),
+
+
+              // Profile
+              MaterialButton(
+                onPressed: () {
+                  print("Profile Pressed");
+                  setState(() {
+                    currentScreen = Profile();
+                    currentTab = 3;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.account_circle ,
+                      color: currentTab==2?Colors.green : Colors.grey,),
+                    Text(
+                      'Profile',
+                      style: TextStyle(
+                        color: currentTab==2?Colors.green : Colors.grey,
+                          fontSize: 12
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
             ],
           ),
         ),

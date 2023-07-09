@@ -36,17 +36,4 @@ class BottomButton extends StatelessWidget {
     }
 }
 
-/**
- *
-    onTap: () {
-    if (barcode != null) {
-    print("Barcode Value: ${barcode!.code}");
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (builder) =>
-    ProductDetails(pid: barcode!.code.toString()))
-    );
-    }
-    },
- */
 

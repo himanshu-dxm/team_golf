@@ -96,7 +96,8 @@ class _Dashboard1State extends State<Dashboard1> {
                         elevation: 8,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18)),
-                        color: Colors.white12,
+                        // color: Colors.white12,
+                        color: Colors.grey[700],
                         clipBehavior: Clip.antiAlias,
                         child: Container(
                           // width: double.infinity,
@@ -144,7 +145,7 @@ class _Dashboard1State extends State<Dashboard1> {
                         elevation: 8,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18)),
-                        color: Colors.white12,
+                        color: Colors.grey[700],
                         clipBehavior: Clip.antiAlias,
                         child: Container(
                           // width: double.infinity,
@@ -288,7 +289,7 @@ class _Dashboard1State extends State<Dashboard1> {
                           margin: EdgeInsets.all(8),
                           width: MediaQuery.of(context).size.width*0.95,
                           decoration: BoxDecoration(
-                              color: Colors.white70,
+                              color: Colors.grey[700],
                               borderRadius: BorderRadius.all(Radius.circular(10))
                           ),
                           child: Row(
