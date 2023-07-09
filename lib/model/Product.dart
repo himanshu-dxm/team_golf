@@ -4,9 +4,11 @@ class Product {
   final String productName, description;
   final bool isRawMaterial;
   final String weight,manufacturingAddress,productImage;
-  final double carbonFootPrint,rating;
+  final double rating;
+  final int carbonFootPrint;
   final List<Color> colors;
   final List<String> images;
+  final double totalCarbon;
 
   Product({
     required this.carbonFootPrint,
@@ -19,10 +21,37 @@ class Product {
     this.rating = 4.8,
     required this.colors,
     required this.images,
+    required this.totalCarbon,
   });
+  
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+        carbonFootPrint: json["productDetails"]["carbonFootPrint"],
+        isRawMaterial: json["productDetails"]["isRawMaterial"],
+        manufacturingAddress: json["productDetails"]["manufacturingAddress"],
+        productImage: json["productDetails"]["productImage"],
+        productName: json["productDetails"]["productName"],
+        description: json["productDetails"]["description"],
+        weight: json["productDetails"]["weight"],
+        colors: [
+          Color(0xFFF6625E),
+          Color(0xFF836DB8),
+          Color(0xFFDECB9C),
+          Colors.white,
+        ],
+        images: [
+          "assets/images/ps4_console_white_1.png",
+          "assets/images/ps4_console_white_2.png",
+          "assets/images/ps4_console_white_3.png",
+          "assets/images/ps4_console_white_4.png",
+        ],
+      totalCarbon: json["totalCarbon"],
+    );
+  }
 }
 
 Product demoProduct = Product(
+  totalCarbon: 22900.4,
   productName: "Tata Nano",
   description: "Ev Car",
   isRawMaterial: false,

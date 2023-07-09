@@ -24,7 +24,7 @@ class BottomButton extends StatelessWidget {
           onPressed: () {
             print("Button scanner page pressed ");
             if(barcode!=null) {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (builder) =>
                       ProductDetails(pid: barcode!.code.toString()))

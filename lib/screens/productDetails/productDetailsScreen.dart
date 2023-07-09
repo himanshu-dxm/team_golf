@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/services/getProductData.dart';
 import 'package:sih_team_golf/utilities/size_config.dart';
 import '../../model/Product.dart';
 import 'components/body.dart';
@@ -14,11 +15,12 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
 
+  late Future<Product> futureProduct;
 
   @override
   void initState() {
     super.initState();
-
+    futureProduct = JSONDetails.getProductData(widget.pid);
   }
 
   Product _product = demoProduct;
@@ -31,9 +33,19 @@ class _ProductDetailsState extends State<ProductDetails> {
       backgroundColor: Color(0xFFF5F6F9),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-        child: CustomAppBar(rating: _product.rating),
+        child: CustomAppBar(rating: 4.8),
       ),
-      body: Body(product: _product),
+      body: FutureBuilder(
+        future: futureProduct,
+          builder:  (context, snapshot) {
+          if(snapshot.hasData) {
+            return Body(product: _product);
+          } else if(snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator();
+        }
+      ),
     );
   }
 
