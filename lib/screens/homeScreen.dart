@@ -19,8 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> screens = [
     const Dashboard1(),
     const Games(),
+    Reels(),
     const Profile(),
-    Reels()
+    QRScanPage(),
   ];
 
   Widget currentScreen = const Dashboard1();
@@ -41,12 +42,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        foregroundColor: currentTab==4 ?
+        Colors.green :
+        Colors.white,
         onPressed: () {
           print("Scanner Tapped");
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => QRScanPage())
-          );
+          setState(() {
+            currentScreen = QRScanPage();
+            currentTab = 4;
+          });
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => QRScanPage())
+          // );
         },
         tooltip: 'Scan',
         elevation: 2.0,
@@ -54,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar:BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        color: Colors.blueGrey,
+        color: Colors.black,
         child: Container(
           width: MediaQuery.of(context).size.width,
           // padding: EdgeInsets.all(8),
@@ -76,11 +85,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.dashboard , color: currentTab==0?Colors.green : Colors.grey,),
+                    Icon(Icons.dashboard , color: currentTab==0?Colors.green : Colors.white,),
                     Text(
                       'Dashboard',
                       style: TextStyle(
-                        color: currentTab==0?Colors.green : Colors.grey,
+                        color: currentTab==0?Colors.green : Colors.white,
                         fontSize: 12
                       ),
                     )
@@ -101,11 +110,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.games_outlined , color: currentTab==1?Colors.green : Colors.grey,),
+                    Icon(Icons.games_outlined , color: currentTab==1?Colors.green : Colors.white,),
                     Text(
                       'Games',
                       style: TextStyle(
-                        color: currentTab==1?Colors.green : Colors.grey,
+                        color: currentTab==1?Colors.green : Colors.white,
                           fontSize: 12
                       ),
                     )
@@ -127,11 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.slow_motion_video_outlined , color: currentTab==3?Colors.green : Colors.grey,),
+                    Icon(Icons.slow_motion_video_outlined ,
+                      color: currentTab==2?Colors.green : Colors.white,),
                     Text(
                       'Reels',
                       style: TextStyle(
-                          color: currentTab==3?Colors.green : Colors.grey,
+                          color: currentTab==2?Colors.green : Colors.white,
                           fontSize: 12
                       ),
                     )
@@ -154,11 +164,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.account_circle ,
-                      color: currentTab==2?Colors.green : Colors.grey,),
+                      color: currentTab==3?Colors.green : Colors.white,),
                     Text(
                       'Profile',
                       style: TextStyle(
-                        color: currentTab==2?Colors.green : Colors.grey,
+                        color: currentTab==3?Colors.green : Colors.white,
                           fontSize: 12
                       ),
                     )
