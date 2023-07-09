@@ -31,7 +31,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Team Golf',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        // primarySwatch: Colors.grey,
+        brightness: Brightness.light
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark
       ),
       // home: LoginPage(),
       // home: ProductDetails(pid: '12345',),

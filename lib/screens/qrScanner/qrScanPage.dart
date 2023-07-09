@@ -46,14 +46,6 @@ class _QRScanPageState extends State<QRScanPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(Icons.arrow_back_ios_new)
-          ),
-        ),
 
 
         // bottomNavigationBar: BottomAppBar(

@@ -22,6 +22,7 @@ class Header extends StatelessWidget {
               child: const Icon(
                 Icons.account_circle,
                 size: 32,
+                color: Colors.black,
               ))
         ],
       ),
