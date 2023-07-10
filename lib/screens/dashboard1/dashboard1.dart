@@ -22,6 +22,20 @@ class _Dashboard1State extends State<Dashboard1> {
   final controller = Get.put(TransactionController());
 
   int _indexHorizontal = 0;
+  double _totalCarbonSpent = 1000;
+  double _totalCarbonOverall = 10000;
+  double tmp=1000;
+
+
+  @override
+  void initState() {
+    calculateTotal();
+  }
+
+  void calculateTotal() async {
+    _totalCarbonSpent += await controller.getTotalCarbon();
+    _totalCarbonOverall += _totalCarbonSpent;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +59,7 @@ class _Dashboard1State extends State<Dashboard1> {
                 ),
 
                 FocusText(
-                    totalMonthlySpend: '12,524 C0\u2082 Kg'
+                    totalMonthlySpend: '$_totalCarbonSpent C0\u2082 Kg'
                 ),
 
 
@@ -64,7 +78,7 @@ class _Dashboard1State extends State<Dashboard1> {
                     ),
 
                     TopCard(
-                        value: '5M+ ',
+                        value: '${_totalCarbonOverall} Kg',
                         heading: 'Total Spends'
                     ),
                   ],
@@ -124,6 +138,7 @@ class _Dashboard1State extends State<Dashboard1> {
                       builder: (context, snapshot) {
                         if(snapshot.connectionState == ConnectionState.done) {
                           if(snapshot.hasData) {
+
                             // List<Product> product = snapshot.data as List<Product>;
                             return ListView.builder(
                               shrinkWrap: true,
@@ -157,7 +172,7 @@ class _Dashboard1State extends State<Dashboard1> {
                             child: CircularProgressIndicator(),
                           );
                         }
-                      }, future: controller.getTransaction(),
+                      }, future: controller.getTransaction()
                     ),
                   ],
                 ),

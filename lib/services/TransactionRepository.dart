@@ -35,4 +35,14 @@ class TransactionsRepository extends GetxController {
     final transactionData = snapshot.docs.map((e) => Product.fromSnapshot(e)).toList();
     return transactionData;
   }
+
+  Future<double> getTotalCarbon() async {
+    final snapshot = await _db.collection("transactions").get();
+    final transactionData = snapshot.docs.map((e) => Product.fromSnapshot(e)).toList();
+    double sum = 0.0;
+    for( final transaction in transactionData) {
+      sum += transaction.totalCarbon;
+    }
+    return sum;
+  }
 }
