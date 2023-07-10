@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:sih_team_golf/helper/auth.dart';
+import 'package:sih_team_golf/services/auth.dart';
 import 'package:sih_team_golf/screens/leaderboard.dart';
 import 'package:sih_team_golf/utilities/themes.dart';
 

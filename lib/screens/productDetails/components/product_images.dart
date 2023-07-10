@@ -28,7 +28,8 @@ class _ProductImagesState extends State<ProductImages> {
             child: Hero(
               tag: 1,
               // tag: widget.product.id.toString(),
-              child: Image.asset(widget.product.images[selectedImage]),
+              child: Image.network(widget.product.productImage),
+              // child: Image.asset(widget.product.images[selectedImage]),
             ),
           ),
         ),

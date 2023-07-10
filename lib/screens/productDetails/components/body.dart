@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sih_team_golf/helper/controller/transaction_controller.dart';
+import 'package:sih_team_golf/screens/homeScreen.dart';
 import 'package:sih_team_golf/screens/productCFDetail/productCFDetail.dart';
 
 import '../../../model/Product.dart';
@@ -20,7 +23,7 @@ class Body extends StatelessWidget {
       children: [
         ProductImages(product: product),
         TopRoundedContainer(
-          color: Colors.grey[700]!,
+          color: Colors.black87,
           child: Column(
             children: [
               ProductDescription(
@@ -60,7 +63,17 @@ class Body extends StatelessWidget {
                     child: DefaultButton(
                       text: "Buy",
                       press: () {
+                        print("Buy Tapped");
+                        TransactionController.
+                        instance.
+                        createTransaction(product).
+                        whenComplete(
+                                () {
+                                  print("Transcation Added Hopefully");
+                                  // Get.to(() => const HomeScreen());
 
+                                }
+                        );
                       },
                     ),
                   ),
