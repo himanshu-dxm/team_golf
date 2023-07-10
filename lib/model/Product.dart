@@ -48,6 +48,32 @@ class Product {
       totalCarbon: json["totalCarbon"],
     );
   }
+
+  toJson() {
+    return {
+      "totalCarbon": 22900.4,
+      "productName": "Tata Nano",
+      "description": "Ev Car",
+      "isRawMaterial": false,
+      "weight": "700",
+      "carbonFootPrint": 120,
+      "manufacturingAddress": "Gujrat",
+      "productImage":
+      "https://firebasestorage.googleapis.com/v0/b/carbon-footprint-monitor.appspot.com/o/productImage%2FGL2tpgUlm6Bk1aj7udd5.png?alt=media&token=8c49af2e-c448-4b6d-9ade-756332b8869f",
+      "images": [
+        "assets/images/ps4_console_white_1.png",
+        "assets/images/ps4_console_white_2.png",
+        "assets/images/ps4_console_white_3.png",
+        "assets/images/ps4_console_white_4.png",
+      ],
+      "colors": [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+    };
+  }
 }
 
 Product demoProduct = Product(
