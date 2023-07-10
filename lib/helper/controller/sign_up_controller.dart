@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sih_team_golf/helper/auth.dart';
+import 'package:sih_team_golf/services/auth.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();

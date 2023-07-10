@@ -1,6 +1,6 @@
 
 import 'package:get/get.dart';
-import 'package:sih_team_golf/helper/auth.dart';
+import 'package:sih_team_golf/services/auth.dart';
 import 'package:sih_team_golf/screens/homeScreen.dart';
 
 class OTPController extends GetxController {
