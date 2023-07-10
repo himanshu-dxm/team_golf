@@ -22,11 +22,14 @@ class ProductDescription extends StatelessWidget {
       children: [
         Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Text(
-            product.productName,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          child: Text(product.productName,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold)
+              // style: Theme.of(context).textTheme.titleLarge,
+              ),
         ),
         Align(
           alignment: Alignment.centerRight,
@@ -54,8 +57,27 @@ class ProductDescription extends StatelessWidget {
             right: getProportionateScreenWidth(64),
           ),
           child: Text(
-            product.description,
+            "Product Description : ${product.description}",
             maxLines: 3,
+            style: TextStyle(
+                color: Colors.white70,
+                fontSize: 18,
+                fontStyle: FontStyle.italic),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            left: getProportionateScreenWidth(20),
+            right: getProportionateScreenWidth(64),
+            top: getProportionateScreenHeight(16),
+          ),
+          child: Text(
+            "Total Carbon  : ${product.totalCarbon}",
+            maxLines: 3,
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold),
           ),
         ),
         Padding(
@@ -72,13 +94,15 @@ class ProductDescription extends StatelessWidget {
                 Text(
                   "See More Detail",
                   style: TextStyle(
-                      fontWeight: FontWeight.w600, color: Color(0xFFFF7643)),
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white70
+                  ),
                 ),
                 SizedBox(width: 5),
                 Icon(
                   Icons.arrow_forward_ios,
                   size: 12,
-                  color: Color(0xFFFF7643),
+                  color: Colors.white70,
                 ),
               ],
             ),
