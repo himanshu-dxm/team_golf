@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/screens/dashboard1/components/centralCard.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/focusText.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/topCard.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/transactionCard.dart';
@@ -51,73 +52,28 @@ class _Dashboard1State extends State<Dashboard1> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TopCard(
-                        value: '5M CO\u2082eq',
-                        heading: 'Savings'
+                        value: '5000',
+                        heading: 'Carbonify Coins'
                     ),
 
                     TopCard(
-                        value: '5M+',
+                        value: '5M+ ',
                         heading: 'Total Spends'
                     ),
                   ],
                 ),
 
                 // TODO : Horizontal Scroll Design
-                /*
-                Container(
-                  decoration: const BoxDecoration(
-                      color: Colors.black12
-                  ),
-                  child: SizedBox(
-                    height: 100,
-                    child: PageView.builder(
-                      controller: PageController(viewportFraction: 0.7),
-                        itemCount: 6,
-                        onPageChanged: (int index) => setState(() {
-                          _indexHorizontal = index;
-                        }),
-                        itemBuilder: (_, i) {
-                          return Transform.scale(
-                            scale: i == _indexHorizontal ?1 : 0,
-                            child: Card(
-                              elevation: 6,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                              child: Center(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                        'Amount',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold)
-                                    ),
-                                    Text(
-                                        'Category',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 18,
-                                        fontStyle: FontStyle.italic),
+                CenterCards(),
 
 
-                                    )
+                // Transactions and View more Row
 
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        }
-                    ),
-                  ),
-                ),
-
-                */
-
-                // Transaction and View more Row
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+
+                    // Heading
                     Container(
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.all(8),
@@ -156,7 +112,7 @@ class _Dashboard1State extends State<Dashboard1> {
                     ),
 
                     const SizedBox(height: 8,),
-
+                    // List
                     Column(
                       children: [
 
@@ -196,6 +152,7 @@ class _Dashboard1State extends State<Dashboard1> {
                     ),
                   ],
                 ),
+
               ],
             ),
           ),

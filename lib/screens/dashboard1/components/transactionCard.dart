@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TransactionCard extends StatelessWidget {
   final double carbonAmount;
   final String title,category,date;
-  TransactionCard({
+  const TransactionCard({
     super.key,
     required this.carbonAmount,
     required this.title,

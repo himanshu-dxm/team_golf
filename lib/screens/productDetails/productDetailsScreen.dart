@@ -39,6 +39,8 @@ class _ProductDetailsState extends State<ProductDetails> {
         future: futureProduct,
           builder:  (context, snapshot) {
           if(snapshot.hasData) {
+            print("Printing Body");
+            print("Product Title ${_product.productName}");
             return Body(product: _product);
           } else if(snapshot.hasError) {
             return Text('${snapshot.error}');
