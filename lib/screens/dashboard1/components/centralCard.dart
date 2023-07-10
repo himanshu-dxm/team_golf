@@ -20,7 +20,7 @@ class CenterCards extends StatelessWidget {
             height: 100,
               width: 100,
               decoration: BoxDecoration(
-          color: Colors.grey[700],
+                color: Colors.grey[800],
               borderRadius: BorderRadius.all(Radius.circular(100))
           ),
               child: SizedBox(

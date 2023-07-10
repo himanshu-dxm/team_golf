@@ -17,7 +17,7 @@ class TopCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18)),
         // color: Colors.white12,
-        color: Colors.grey[700],
+        color: Colors.grey[800],
         clipBehavior: Clip.antiAlias,
         child: Container(
           // width: double.infinity,

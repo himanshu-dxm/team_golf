@@ -17,7 +17,7 @@ class TransactionCard extends StatelessWidget {
       margin: EdgeInsets.all(8),
       width: MediaQuery.of(context).size.width*0.95,
       decoration: BoxDecoration(
-          color: Colors.grey[700],
+          color: Colors.grey[800],
           borderRadius: BorderRadius.all(Radius.circular(10))
       ),
       child: Row(
