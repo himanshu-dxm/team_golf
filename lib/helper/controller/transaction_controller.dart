@@ -12,4 +12,8 @@ class TransactionController extends GetxController {
   Future<void> createTransaction(Product product) async {
     await transactionRepo.addTransaction(product);
   }
+  
+  Future<List<Product>> getTransaction() async {
+    return await transactionRepo.getTransaction();
+  }
 }

@@ -1,62 +1,44 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
-class Product {
+class TransactionData {
   final String productName, description;
-  final bool isRawMaterial;
   final String weight,manufacturingAddress,productImage;
   final double rating;
   final int carbonFootPrint;
-  final List<Color> colors;
-  final List<String> images;
   final double totalCarbon;
+  final String date;
 
-  Product({
+  TransactionData({
     required this.carbonFootPrint,
-    required this.isRawMaterial,
     required this.manufacturingAddress,
     required this.productImage,
     required this.productName,
     required this.description,
     required this.weight,
     this.rating = 4.8,
-    required this.colors,
-    required this.images,
     required this.totalCarbon,
+    required this.date
   });
-  
-  factory Product.fromJson(Map<String, dynamic> json) {
-    return Product(
-        carbonFootPrint: json["productDetails"]["carbonFootPrint"],
-        isRawMaterial: json["productDetails"]["isRawMaterial"],
-        manufacturingAddress: json["productDetails"]["manufacturingAddress"],
-        productImage: json["productDetails"]["productImage"],
-        productName: json["productDetails"]["productName"],
-        description: json["productDetails"]["description"],
-        weight: json["productDetails"]["weight"],
-        colors: [
-          Color(0xFFF6625E),
-          Color(0xFF836DB8),
-          Color(0xFFDECB9C),
-          Colors.white,
-        ],
-        images: [
-          "assets/images/ps4_console_white_1.png",
-          "assets/images/ps4_console_white_2.png",
-          "assets/images/ps4_console_white_3.png",
-          "assets/images/ps4_console_white_4.png",
-        ],
-      totalCarbon: json["totalCarbon"],
-    );
-  }
+
+  // factory Transaction.fromJson(Map<String, dynamic> json) {
+  //   return Transaction(
+  //     carbonFootPrint: json["productDetails"]["carbonFootPrint"],
+  //     manufacturingAddress: json["productDetails"]["manufacturingAddress"],
+  //     productImage: json["productDetails"]["productImage"],
+  //     productName: json["productDetails"]["productName"],
+  //     description: json["productDetails"]["description"],
+  //     weight: json["productDetails"]["weight"],
+  //     totalCarbon: json["totalCarbon"],
+  //
+  //   );
+  // }
 
   toJson() {
     return {
       "totalCarbon": totalCarbon,
       "productName": productName,
       "description": description,
-      "isRawMaterial": isRawMaterial,
       "weight": weight,
       "carbonFootPrint": carbonFootPrint,
       "manufacturingAddress": manufacturingAddress,
@@ -65,62 +47,38 @@ class Product {
     };
   }
 
-  factory Product.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+  factory TransactionData.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
-    return Product(
+    return TransactionData(
         carbonFootPrint: data["carbonFootPrint"],
-        isRawMaterial: data["isRawMaterial"],
         manufacturingAddress: data["manufacturingAddress"],
         productImage: data["productImage"],
         productName: data["productName"],
         description: data["description"],
         weight: data["weight"],
-        colors: [
-          Color(0xFFF6625E),
-          Color(0xFF836DB8),
-          Color(0xFFDECB9C),
-          Colors.white,
-        ],
-        images: [
-          "assets/images/ps4_console_white_1.png",
-          "assets/images/ps4_console_white_2.png",
-          "assets/images/ps4_console_white_3.png",
-          "assets/images/ps4_console_white_4.png",
-        ],
-        totalCarbon: data["totalCarbon"]
+        totalCarbon: data["totalCarbon"],
+        date: data["date"]
     );
   }
 
 }
 
-Product demoProduct = Product(
+TransactionData demoTransaction = TransactionData(
   totalCarbon: 22900.4,
   productName: "Tata Nano",
   description: "Ev Car",
-  isRawMaterial: false,
   weight: "700",
   carbonFootPrint: 120,
   manufacturingAddress: "Gujrat",
   productImage:
-      "https://firebasestorage.googleapis.com/v0/b/carbon-footprint-monitor.appspot.com/o/productImage%2FGL2tpgUlm6Bk1aj7udd5.png?alt=media&token=8c49af2e-c448-4b6d-9ade-756332b8869f",
-  images: [
-    "assets/images/ps4_console_white_1.png",
-    "assets/images/ps4_console_white_2.png",
-    "assets/images/ps4_console_white_3.png",
-    "assets/images/ps4_console_white_4.png",
-  ],
-  colors: [
-    Color(0xFFF6625E),
-    Color(0xFF836DB8),
-    Color(0xFFDECB9C),
-    Colors.white,
-  ],
+  "https://firebasestorage.googleapis.com/v0/b/carbon-footprint-monitor.appspot.com/o/productImage%2FGL2tpgUlm6Bk1aj7udd5.png?alt=media&token=8c49af2e-c448-4b6d-9ade-756332b8869f",
+  date: DateTime.now().toString(),
 );
 
-// Our demo Products
+// Our demo Transactions
 /*
-List<Product> demoProducts = [
-  Product(
+List<Transaction> demoTransactions = [
+  Transaction(
     id: 1,
     images: [
       "assets/images/ps4_console_white_1.png",
@@ -141,10 +99,10 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  Transaction(
     id: 2,
     images: [
-      "assets/images/Image Popular Product 2.png",
+      "assets/images/Image Popular Transaction 2.png",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -158,7 +116,7 @@ List<Product> demoProducts = [
     rating: 4.1,
     isPopular: true,
   ),
-  Product(
+  Transaction(
     id: 3,
     images: [
       "assets/images/glap.png",
@@ -176,7 +134,7 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  Transaction(
     id: 4,
     images: [
       "assets/images/wireless headset.png",

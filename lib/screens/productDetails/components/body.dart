@@ -57,7 +57,7 @@ class Body extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: SizeConfig.screenWidth * 0.15,
                       right: SizeConfig.screenWidth * 0.15,
-                      bottom: getProportionateScreenWidth(50),
+                      bottom: getProportionateScreenWidth(60),
                       top: getProportionateScreenWidth(20),
                     ),
                     child: DefaultButton(

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sih_team_golf/helper/controller/transaction_controller.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/centralCard.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/focusText.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/topCard.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/transactionCard.dart';
 
+import '../../model/Product.dart';
 import 'components/header.dart';
 
 
@@ -15,6 +18,8 @@ class Dashboard1 extends StatefulWidget {
 }
 
 class _Dashboard1State extends State<Dashboard1> {
+  
+  final controller = Get.put(TransactionController());
 
   int _indexHorizontal = 0;
 
@@ -39,7 +44,9 @@ class _Dashboard1State extends State<Dashboard1> {
                   height: 8,
                 ),
 
-                FocusText(totalMonthlySpend: '12,524 C0\u2082 Kg'),
+                FocusText(
+                    totalMonthlySpend: '12,524 C0\u2082 Kg'
+                ),
 
 
                 const SizedBox(
@@ -81,7 +88,7 @@ class _Dashboard1State extends State<Dashboard1> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Transactions",
+                            "Products Bought",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -113,42 +120,44 @@ class _Dashboard1State extends State<Dashboard1> {
 
                     const SizedBox(height: 8,),
                     // List
-                    Column(
-                      children: [
+                    FutureBuilder<List<Product>>(
+                      builder: (context, snapshot) {
+                        if(snapshot.connectionState == ConnectionState.done) {
+                          if(snapshot.hasData) {
+                            // List<Product> product = snapshot.data as List<Product>;
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: snapshot.data!.length,
+                              itemBuilder: (c, index) {
+                                return Column(
+                                  children: [
 
-                        TransactionCard(
-                            carbonAmount: 3.99,
-                            title: 'Apple',
-                            category: 'Phone',
-                            date: '6 Sep'
-                        ),
-                        TransactionCard(
-                            carbonAmount: 3.99,
-                            title: 'Apple',
-                            category: 'Phone',
-                            date: '6 Sep'
-                        ),
-                        TransactionCard(
-                            carbonAmount: 3.99,
-                            title: 'Apple',
-                            category: 'Phone',
-                            date: '6 Sep'
-                        ),
-                        TransactionCard(
-                            carbonAmount: 3.99,
-                            title: 'Apple',
-                            category: 'Phone',
-                            date: '6 Sep'
-                        ),
-                        TransactionCard(
-                            carbonAmount: 3.99,
-                            title: 'Apple',
-                            category: 'Phone',
-                            date: '6 Sep'
-                        ),
+                                    TransactionCard(
+                                        carbonAmount: snapshot.data![index].totalCarbon,
+                                        title: snapshot.data![index].productName,
+                                        category: snapshot.data![index].description,
+                                        date: snapshot.data![index].weight.toString()
+                                    ),
 
-
-                      ],
+                                  ],
+                                );
+                              }
+                            );
+                          } else if (snapshot.hasError) {
+                            return Center(
+                              child: Text(snapshot.error.toString()),
+                            );
+                          } else {
+                            return Center(
+                              child: Text('Something Went Wrong!'),
+                            );
+                          }
+                        } else {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      }, future: controller.getTransaction(),
                     ),
                   ],
                 ),

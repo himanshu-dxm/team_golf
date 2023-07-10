@@ -29,4 +29,10 @@ class TransactionsRepository extends GetxController {
     });
 
   }
+  
+  Future<List<Product>> getTransaction() async {
+    final snapshot = await _db.collection("transactions").get();
+    final transactionData = snapshot.docs.map((e) => Product.fromSnapshot(e)).toList();
+    return transactionData;
+  }
 }

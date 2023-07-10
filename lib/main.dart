@@ -9,19 +9,29 @@ import 'package:sih_team_golf/screens/login/login.dart';
 import 'package:sih_team_golf/screens/productDetails/productDetailsScreen.dart';
 import 'package:sih_team_golf/services/getProductData.dart';
 
+import 'model/Product.dart';
 import 'screens/splashScreen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).
-  then((value) {
-      print(value);
-      // Get.put(AuthenticationRepository())
-      Get.put(TransactionController());
-  });
+
   // JSONDetails.getProductData("bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q");
-  
+
+  await initializations();
   runApp(const MyApp());
+}
+
+initializations() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).
+  then((value) {
+    print(value);
+    // Get.put(AuthenticationRepository());
+    Get.put(TransactionController());
+  });
+  print("Inside getTransaction");
+  List<Product> products = await TransactionController.instance.getTransaction();
+  print("Products Length:${products.length}");
+  print(products[0].totalCarbon);
 }
 
 class MyApp extends StatelessWidget {
@@ -40,11 +50,11 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark
       ),
       // home: LoginPage(),
-      home: ProductDetails(
-        pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
-      ),
-      // home: SplashScreen(),
-      // home: HomeScreen(),
+      // home: ProductDetails(
+      //   pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
+      // ),
+      // home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
