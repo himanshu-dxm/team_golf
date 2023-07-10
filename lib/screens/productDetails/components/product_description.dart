@@ -26,10 +26,25 @@ class ProductDescription extends StatelessWidget {
           child: Text(product.productName,
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 36,
                   fontWeight: FontWeight.bold)
               // style: Theme.of(context).textTheme.titleLarge,
               ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.only(
+            left: getProportionateScreenWidth(20),
+            right: getProportionateScreenWidth(64),
+          ),
+          child: Text(
+            "Product Description : ${product.description}",
+            maxLines: 3,
+            style: TextStyle(
+                color: Colors.white70,
+                fontSize: 24,
+                fontStyle: FontStyle.italic),
+          ),
         ),
         Align(
           alignment: Alignment.centerRight,
@@ -52,17 +67,36 @@ class ProductDescription extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
-            right: getProportionateScreenWidth(64),
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+            vertical: 10,
           ),
-          child: Text(
-            "Product Description : ${product.description}",
-            maxLines: 3,
-            style: TextStyle(
-                color: Colors.white70,
-                fontSize: 18,
-                fontStyle: FontStyle.italic),
+          child: GestureDetector(
+            onTap: () {
+              // ProductCF(product: this.product);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (ctx) => ProductCF(product: this.product))
+              );
+            },
+            child: Row(
+              children: [
+                Text(
+                  "See More Detail",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white70,
+                    fontSize: 18
+                  ),
+                ),
+                SizedBox(width: 5),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 18,
+                  color: Colors.white70,
+                ),
+              ],
+            ),
           ),
         ),
         Padding(
@@ -76,38 +110,11 @@ class ProductDescription extends StatelessWidget {
             maxLines: 3,
             style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.bold),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-            vertical: 10,
-          ),
-          child: GestureDetector(
-            onTap: () {
-              // ProductCF(product: this.product);
-            },
-            child: Row(
-              children: [
-                Text(
-                  "See More Detail",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white70
-                  ),
-                ),
-                SizedBox(width: 5),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                  color: Colors.white70,
-                ),
-              ],
-            ),
-          ),
-        )
+
       ],
     );
   }

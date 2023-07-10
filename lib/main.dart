@@ -38,11 +38,11 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark
       ),
       // home: LoginPage(),
-      home: ProductDetails(
-        pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
-      ),
+      // home: ProductDetails(
+      //   pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
+      // ),
       // home: SplashScreen(),
-      // home: HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

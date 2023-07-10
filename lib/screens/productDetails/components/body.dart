@@ -34,6 +34,7 @@ class Body extends StatelessWidget {
                   );
                 },
               ),
+              /*
               TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -44,28 +45,26 @@ class Body extends StatelessWidget {
                   child: Text('Check Carbon Footprints!')
               ),
 
-              TopRoundedContainer(
-                // color: Color(0xFFF6F7F9),
-                color: Colors.black,
-                child: Column(
-                  children: [
-                    // ColorDots(product: product),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: SizeConfig.screenWidth * 0.15,
-                        right: SizeConfig.screenWidth * 0.15,
-                        bottom: getProportionateScreenWidth(40),
-                        // top: getProportionateScreenWidth(15),
-                      ),
-                      child: DefaultButton(
-                        text: "Buy",
-                        press: () {
+               */
 
-                        },
-                      ),
+              Column(
+                children: [
+                  // ColorDots(product: product),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: SizeConfig.screenWidth * 0.15,
+                      right: SizeConfig.screenWidth * 0.15,
+                      bottom: getProportionateScreenWidth(50),
+                      top: getProportionateScreenWidth(20),
                     ),
-                  ],
-                ),
+                    child: DefaultButton(
+                      text: "Buy",
+                      press: () {
+
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
