@@ -6,8 +6,170 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            // padding: EdgeInsets.all(8),
+            margin: EdgeInsets.all(8),
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              color: Colors.grey[850]
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+
+                      Icon(Icons.account_circle,size: 98,),
+
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Name : Himanshu',
+                            style: TextStyle(
+                              fontSize: 20
+                            ),
+                          ),
+                          SizedBox(height: 4,),
+                          Text(
+                            'Phone : 9934161540',
+                            style: TextStyle(
+                                fontSize: 20
+                            ),
+                          ),
+                          SizedBox(height: 4,),
+                          Text(
+                            'UID : fkadsbfTjhTlJHAt',
+                            style: TextStyle(
+                                fontSize: 20
+                            ),
+                          )
+                        ],
+                      ),
+
+                      Container(
+                        alignment: Alignment.topRight,
+                        child: Icon(
+                          Icons.edit,
+                          size: 24,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: 8,),
+                Container(
+                  padding: EdgeInsets.all(9),
+                  height: 80,
+                  // margin: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Text('Select Language',style: TextStyle(
+                          fontSize: 20,
+
+                      ),
+                      ),
+                      Spacer(),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        color: Colors.grey[800],
+                        width: MediaQuery.of(context).size.width/2,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text('English',
+                          style: TextStyle(
+                            fontSize: 20,
+                            ),),
+                            Icon(Icons.arrow_drop_down_circle_outlined)
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 8,),
+                Container(
+                  height: 70,
+                  padding: EdgeInsets.all(8),
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                      'Transfer data to other Profile',
+                    style: TextStyle(
+                      fontSize: 20,
+                    )
+                  ),
+                ),
+                SizedBox(height: 8,),
+                Container(
+                  height: 60,
+                  padding: EdgeInsets.all(8),
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                      'Add Family Member',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )
+                  ),
+                ),
+                SizedBox(height: 8,),
+                Container(
+                  height: 50,
+                  padding: EdgeInsets.all(8),
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.center,
+                  // color: Colors.black87,
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                      'Logout',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )
+                  ),
+                ),
+                SizedBox(height: 150,),
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    'v 1.0.0 @Team Golf',
+                    style: TextStyle(
+                      fontSize: 18
+                    ),
+                  ),
+                )
+
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -54,16 +54,17 @@ class MyApp extends StatelessWidget {
       // home: ProductDetails(
       //   pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
       // ),
-      home: ProductCF(
-        manufacturingSpends: 100,
-        logisticsSpends: 300,
-        totalCarbon: 3000,
-        productName: 'Product Name',
-        packagingSpends: 1500,
-      ),
+
+      // home: ProductCF(
+      //   manufacturingSpends: 100,
+      //   logisticsSpends: 300,
+      //   totalCarbon: 3000,
+      //   productName: 'Product Name',
+      //   packagingSpends: 1500,
+      // ),
 
       // home: LoginScreen(),
-      // home: HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }
