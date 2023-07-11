@@ -36,6 +36,7 @@ class _Dashboard1State extends State<Dashboard1> {
   void calculateTotal() async {
     _totalCarbonSpent += await controller.getTotalCarbon(UserUID.userUID);
     _totalCarbonOverall += _totalCarbonSpent;
+    setState(() { });
   }
 
   @override
@@ -44,6 +45,7 @@ class _Dashboard1State extends State<Dashboard1> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(color: Colors.black87),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

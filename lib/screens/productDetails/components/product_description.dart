@@ -84,11 +84,13 @@ class ProductDescription extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (ctx) =>
                   ProductCF(
-                    manufacturingSpends: product.totalCarbon/3,
-                    logisticsSpends: product.totalCarbon/3,
+                    manufacturingSpends: product.totalCarbon*0.29,
+                    logisticsSpends: product.totalCarbon*0.37,
                     totalCarbon: product.totalCarbon,
                     productName: product.productName,
-                  ))
+                    packagingSpends: product.totalCarbon*0.15,
+                  )
+                  )
               );
             },
             child: Row(

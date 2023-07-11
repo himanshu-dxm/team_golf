@@ -40,6 +40,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(color: Colors.black87),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
