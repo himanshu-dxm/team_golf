@@ -26,7 +26,7 @@ initializations() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).
   then((value) {
     print(value);
-    // Get.put(AuthenticationRepository());
+    Get.put(AuthenticationRepository());
     Get.put(TransactionController());
   });
   print("Inside getTransaction");
