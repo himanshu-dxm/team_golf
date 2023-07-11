@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/model/user.dart';
 
 import '../model/Product.dart';
 
@@ -30,14 +31,14 @@ class TransactionsRepository extends GetxController {
 
   }
   
-  Future<List<Product>> getTransaction() async {
-    final snapshot = await _db.collection("transactions").get();
+  Future<List<Product>> getTransaction(String uid) async {
+    final snapshot = await _db.collection("transactions").where("uid", isEqualTo: uid).get();
     final transactionData = snapshot.docs.map((e) => Product.fromSnapshot(e)).toList();
     return transactionData;
   }
 
-  Future<double> getTotalCarbon() async {
-    final snapshot = await _db.collection("transactions").get();
+  Future<double> getTotalCarbon(String uid) async {
+    final snapshot = await _db.collection("transactions").where("uid", isEqualTo: uid).get();
     final transactionData = snapshot.docs.map((e) => Product.fromSnapshot(e)).toList();
     double sum = 0.0;
     for( final transaction in transactionData) {

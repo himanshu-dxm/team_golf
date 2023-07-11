@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:sih_team_golf/model/user.dart';
 import 'package:sih_team_golf/services/TransactionRepository.dart';
 import 'package:sih_team_golf/services/auth.dart';
 
@@ -13,11 +14,11 @@ class TransactionController extends GetxController {
     await transactionRepo.addTransaction(product);
   }
   
-  Future<List<Product>> getTransaction() async {
-    return await transactionRepo.getTransaction();
+  Future<List<Product>> getTransaction(String uid) async {
+    return await transactionRepo.getTransaction(uid);
   }
 
-  Future<double> getTotalCarbon() async {
-    return await transactionRepo.getTotalCarbon();
+  Future<double> getTotalCarbon(String uid) async {
+    return await transactionRepo.getTotalCarbon(uid);
   }
 }

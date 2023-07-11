@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:sih_team_golf/model/user.dart';
 import 'package:sih_team_golf/screens/homeScreen.dart';
 import 'package:sih_team_golf/screens/login/login.dart';
 
@@ -18,8 +19,18 @@ class AuthenticationRepository extends GetxController {
     ever(firebaseUser, _setInitialScreen);
   }
 
+
+
   _setInitialScreen(User? user) {
-    user == null ? Get.offAll(() => const LoginPage()) : Get.offAll(()=> const HomeScreen());
+
+
+    if (user == null ) {
+      print("Inside Initital Screen User null ");
+      Get.offAll(() => const LoginPage());
+    } else {
+      UserUID.userUID = user.uid;
+      Get.offAll(()=> const HomeScreen());
+    }
   }
 
   Future<void> phoneAuthentication(String phoneNo) async {

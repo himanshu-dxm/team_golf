@@ -1,13 +1,14 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sih_team_golf/model/user.dart';
 
 class TransactionData {
   final String productName, description;
   final String weight,manufacturingAddress,productImage;
-  final double rating;
   final int carbonFootPrint;
   final double totalCarbon;
   final String date;
+  final String uid;
 
   TransactionData({
     required this.carbonFootPrint,
@@ -16,23 +17,25 @@ class TransactionData {
     required this.productName,
     required this.description,
     required this.weight,
-    this.rating = 4.8,
     required this.totalCarbon,
-    required this.date
+    required this.date,
+    required this.uid,
   });
 
-  // factory Transaction.fromJson(Map<String, dynamic> json) {
-  //   return Transaction(
-  //     carbonFootPrint: json["productDetails"]["carbonFootPrint"],
-  //     manufacturingAddress: json["productDetails"]["manufacturingAddress"],
-  //     productImage: json["productDetails"]["productImage"],
-  //     productName: json["productDetails"]["productName"],
-  //     description: json["productDetails"]["description"],
-  //     weight: json["productDetails"]["weight"],
-  //     totalCarbon: json["totalCarbon"],
-  //
-  //   );
-  // }
+  factory TransactionData.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+    final data = document.data()!;
+    return TransactionData(
+        carbonFootPrint: data["carbonFootPrint"],
+        manufacturingAddress: data["manufacturingAddress"],
+        productImage: data["productImage"],
+        productName: data["productName"],
+        description: data["description"],
+        weight: data["weight"],
+        totalCarbon: data["totalCarbon"],
+      date: data["data"],
+      uid: data["uid"],
+    );
+  }
 
   toJson() {
     return {
@@ -47,19 +50,19 @@ class TransactionData {
     };
   }
 
-  factory TransactionData.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data()!;
-    return TransactionData(
-        carbonFootPrint: data["carbonFootPrint"],
-        manufacturingAddress: data["manufacturingAddress"],
-        productImage: data["productImage"],
-        productName: data["productName"],
-        description: data["description"],
-        weight: data["weight"],
-        totalCarbon: data["totalCarbon"],
-        date: data["date"]
-    );
-  }
+  // factory TransactionData.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+  //   final data = document.data()!;
+  //   return TransactionData(
+  //       carbonFootPrint: data["carbonFootPrint"],
+  //       manufacturingAddress: data["manufacturingAddress"],
+  //       productImage: data["productImage"],
+  //       productName: data["productName"],
+  //       description: data["description"],
+  //       weight: data["weight"],
+  //       totalCarbon: data["totalCarbon"],
+  //       date: data["date"]
+  //   );
+  // }
 
 }
 
@@ -73,6 +76,7 @@ TransactionData demoTransaction = TransactionData(
   productImage:
   "https://firebasestorage.googleapis.com/v0/b/carbon-footprint-monitor.appspot.com/o/productImage%2FGL2tpgUlm6Bk1aj7udd5.png?alt=media&token=8c49af2e-c448-4b6d-9ade-756332b8869f",
   date: DateTime.now().toString(),
+  uid: UserUID.userUID,
 );
 
 // Our demo Transactions

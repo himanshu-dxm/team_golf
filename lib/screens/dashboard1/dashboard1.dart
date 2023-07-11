@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sih_team_golf/helper/controller/transaction_controller.dart';
+import 'package:sih_team_golf/model/user.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/centralCard.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/focusText.dart';
 import 'package:sih_team_golf/screens/dashboard1/components/topCard.dart';
@@ -33,7 +34,7 @@ class _Dashboard1State extends State<Dashboard1> {
   }
 
   void calculateTotal() async {
-    _totalCarbonSpent += await controller.getTotalCarbon();
+    _totalCarbonSpent += await controller.getTotalCarbon(UserUID.userUID);
     _totalCarbonOverall += _totalCarbonSpent;
   }
 
@@ -172,7 +173,7 @@ class _Dashboard1State extends State<Dashboard1> {
                             child: CircularProgressIndicator(),
                           );
                         }
-                      }, future: controller.getTransaction()
+                      }, future: controller.getTransaction(UserUID.userUID)
                     ),
                   ],
                 ),

@@ -26,11 +26,11 @@ initializations() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).
   then((value) {
     print(value);
-    // Get.put(AuthenticationRepository());
+    Get.put(AuthenticationRepository());
     Get.put(TransactionController());
   });
   print("Inside getTransaction");
-  List<Product> products = await TransactionController.instance.getTransaction();
+  List<Product> products = await TransactionController.instance.getTransaction("Tytrd45m4gW6XA9yq8PZ3deLVGs2");
   print("Products Length:${products.length}");
   print(products[0].totalCarbon);
 }
@@ -54,15 +54,15 @@ class MyApp extends StatelessWidget {
       // home: ProductDetails(
       //   pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
       // ),
-      home: ProductCF(
-        manufacturingSpends: 1000,
-        logisticsSpends: 1000,
-        totalCarbon: 3000,
-        productName: 'Product Name',
-      ),
+      // home: ProductCF(
+      //   manufacturingSpends: 1000,
+      //   logisticsSpends: 1000,
+      //   totalCarbon: 3000,
+      //   productName: 'Product Name',
+      // ),
 
       // home: LoginScreen(),
-      // home: HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

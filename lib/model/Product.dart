@@ -1,6 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:sih_team_golf/model/user.dart';
 
 class Product {
   final String productName, description;
@@ -61,7 +62,8 @@ class Product {
       "carbonFootPrint": carbonFootPrint,
       "manufacturingAddress": manufacturingAddress,
       "productImage": productImage,
-      "date": DateTime.now().toString()
+      "date": DateTime.now().toString(),
+      "uid": UserUID.userUID,
     };
   }
 
