@@ -102,7 +102,7 @@ class ProductCF extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4,),
                                 Text(
-                                    'Manufacturing $manufacturingSpends'
+                                    'Manufacturing ${manufacturingSpends.toStringAsFixed(3)}'
                                 ),
                               ],
                             ),
@@ -121,7 +121,7 @@ class ProductCF extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4,),
                                 Text(
-                                    'Logistics $logisticsSpends'
+                                    'Logistics ${logisticsSpends.toStringAsFixed(3)}'
                                 ),
                               ],
                             ),
@@ -140,7 +140,7 @@ class ProductCF extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4,),
                                 Text(
-                                    'Packaging $packagingSpends'
+                                    'Packaging ${packagingSpends.toStringAsFixed(3)}'
                                 ),
                               ],
                             ),
@@ -159,7 +159,7 @@ class ProductCF extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4,),
                                 Text(
-                                    'Others (Direct+Indirect) ${(totalCarbon-(manufacturingSpends+logisticsSpends+packagingSpends))}'
+                                    'Others (Direct+Indirect) ${(totalCarbon-(manufacturingSpends+logisticsSpends+packagingSpends)).toStringAsFixed(3)}'
                                 ),
                               ],
                             ),
