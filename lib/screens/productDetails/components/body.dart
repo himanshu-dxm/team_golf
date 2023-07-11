@@ -33,7 +33,13 @@ class Body extends StatelessWidget {
                   // ProductCF(product: this.product,);
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (ctx) => ProductCF(product: this.product))
+                      MaterialPageRoute(builder: (ctx) =>
+                          ProductCF(
+                            manufacturingSpends: product.totalCarbon/3,
+                            logisticsSpends: product.totalCarbon/3,
+                            totalCarbon: product.totalCarbon,
+                            productName: product.productName,
+                          ))
                   );
                 },
               ),

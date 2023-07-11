@@ -3,8 +3,17 @@ import 'package:flutter/material.dart';
 import '../../model/Product.dart';
 
 class ProductCF extends StatelessWidget {
-  Product product;
-  ProductCF({super.key, required this.product});
+  final String productName;
+  final double totalCarbon;
+  final double manufacturingSpends, logisticsSpends;
+  // Product product;
+  ProductCF({
+    super.key,
+    required this.manufacturingSpends,
+    required this.logisticsSpends,
+    required this.totalCarbon,
+    required this.productName,
+  });
 
   @override
     Widget build(BuildContext context) {
@@ -17,16 +26,33 @@ class ProductCF extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _title('Product Name \n   CF Details'),
-                  const Padding(
+                  _title('Product Name : ${productName}'),
+                  Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ChartLine(title: 'Transportation', value: 3, rate: 1),
-                        ChartLine(title: 'Energy Usage', value: 2.5, rate: 0.66),
-                        ChartLine(title: 'Raw Material', value: 1, rate: 0.3)
-                      ],
+                        ChartLine(
+                          title: 'Total',
+                          value: totalCarbon,
+                          rate: 1,
+                        ),
+                        ChartLine(
+                            title: 'Manufacturing',
+                            value: manufacturingSpends,
+                            rate: 0.39
+                        ),
+                        ChartLine(
+                            title: 'Logistics',
+                            value: logisticsSpends,
+                            rate: 0.29
+                        ),
+                        ChartLine(
+                          rate: 0.32,
+                          title: 'Others',
+                          value: (totalCarbon-(manufacturingSpends+logisticsSpends))
+                        ),
+                      ]
                     ),
                   ),
                 ],
@@ -49,7 +75,7 @@ class ProductCF extends StatelessWidget {
 }
 
 class ChartLine extends StatelessWidget {
-  const ChartLine({
+  ChartLine({
     Key? key,
     required this.rate,
     required this.title,
