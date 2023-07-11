@@ -6,7 +6,6 @@ import 'package:sih_team_golf/screens/productCFDetail/productCFDetail.dart';
 
 import '../../../model/Product.dart';
 import '../../../utilities/size_config.dart';
-import 'color_dots.dart';
 import 'default_button.dart';
 import 'product_description.dart';
 import 'top_rounded_container.dart';
@@ -39,7 +38,8 @@ class Body extends StatelessWidget {
                             logisticsSpends: product.totalCarbon/3,
                             totalCarbon: product.totalCarbon,
                             productName: product.productName,
-                          ))
+                          )
+                      )
                   );
                 },
               ),

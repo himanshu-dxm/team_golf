@@ -10,6 +10,7 @@ import 'package:sih_team_golf/screens/productDetails/productDetailsScreen.dart';
 import 'package:sih_team_golf/services/getProductData.dart';
 
 import 'model/Product.dart';
+import 'screens/productCFDetail/productCFDetail.dart';
 import 'screens/splashScreen.dart';
 
 void main() async {
@@ -50,9 +51,16 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark
       ),
       // home: LoginPage(),
-      home: ProductDetails(
-        pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
+      // home: ProductDetails(
+      //   pid: 'bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q',
+      // ),
+      home: ProductCF(
+        manufacturingSpends: 1000,
+        logisticsSpends: 1000,
+        totalCarbon: 3000,
+        productName: 'Product Name',
       ),
+
       // home: LoginScreen(),
       // home: HomeScreen(),
     );
