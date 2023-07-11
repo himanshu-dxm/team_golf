@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sih_team_golf/screens/dashboard1/dashboard1.dart';
+import 'package:sih_team_golf/screens/gamesDashboard/gamesDashboard.dart';
 import 'package:sih_team_golf/screens/profile.dart';
 import 'package:sih_team_golf/screens/games.dart';
 import 'package:sih_team_golf/screens/qrScanner/qrScanPage.dart';
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentTab = 0;
   final List<Widget> screens = [
     const Dashboard1(),
-    const Games(),
+    const GamesDashboard(),
     Reels(),
     const Profile(),
     QRScanPage(),
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   print("Games Pressed");
                   setState(() {
-                    currentScreen = Games();
+                    currentScreen = GamesDashboard();
                     currentTab = 1;
                   });
                 },

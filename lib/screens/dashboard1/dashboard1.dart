@@ -59,7 +59,7 @@ class _Dashboard1State extends State<Dashboard1> {
                 ),
 
                 FocusText(
-                    totalMonthlySpend: '$_totalCarbonSpent C0\u2082 Kg'
+                    totalMonthlySpend: '${_totalCarbonSpent.toStringAsFixed(3)} C0\u2082 Kg'
                 ),
 
 
@@ -78,7 +78,7 @@ class _Dashboard1State extends State<Dashboard1> {
                     ),
 
                     TopCard(
-                        value: '${_totalCarbonOverall} Kg',
+                        value: '${_totalCarbonOverall.toStringAsFixed(3)} Kg',
                         heading: 'Total Spends'
                     ),
                   ],
