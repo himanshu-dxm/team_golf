@@ -69,9 +69,8 @@ class Body extends StatelessWidget {
                         createTransaction(product).
                         whenComplete(
                                 () {
-                                  print("Transcation Added Hopefully");
-                                  // Get.to(() => const HomeScreen());
-
+                                  print("Transaction Added ");
+                                  Get.to(() => const HomeScreen());
                                 }
                         );
                       },

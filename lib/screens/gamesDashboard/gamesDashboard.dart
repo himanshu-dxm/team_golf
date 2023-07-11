@@ -71,7 +71,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   children: [
                     TopCard(
                         value: '5000',
-                        heading: 'Carbonify Coins'
+                        heading: 'Total Steps Walked'
                     ),
 
                     TopCard(

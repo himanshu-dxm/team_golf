@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sih_team_golf/screens/homeScreen.dart';
 
 import '../../../utilities/size_config.dart';
 
@@ -33,7 +34,8 @@ class CustomAppBar extends StatelessWidget {
                   backgroundColor: Colors.white,
                   padding: EdgeInsets.zero,
                 ),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Navigator.pushReplacement(context, 
+                MaterialPageRoute(builder: (ctx) => HomeScreen())),
                 child: SvgPicture.asset(
                   "assets/icon/Back ICon.svg",
                   height: 15,
@@ -54,6 +56,7 @@ class CustomAppBar extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
+                      color: Colors.black
                     ),
                   ),
                   const SizedBox(width: 5),
