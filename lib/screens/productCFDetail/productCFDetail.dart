@@ -3,6 +3,8 @@ import 'package:sih_team_golf/screens/productCFDetail/components/stackChart.dart
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../utilities/size_config.dart';
+
 class ProductCF extends StatelessWidget {
   final String productName;
   final double totalCarbon;
@@ -46,7 +48,16 @@ class ProductCF extends StatelessWidget {
      */
 
 
+    SizeConfig().init(context);
       return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         body: SafeArea(
 
           child: SingleChildScrollView(
