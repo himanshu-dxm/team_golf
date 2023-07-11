@@ -56,10 +56,11 @@ class ProductCF extends StatelessWidget {
                 color: Colors.black87
               ),
               child: Container(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(16.0),
+                margin: EdgeInsets.all(8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     _title('Carbon Footprint Distribution'),
                     _title('Product Name : ${productName}'),
@@ -71,8 +72,9 @@ class ProductCF extends StatelessWidget {
                       others: (totalCarbon-(manufacturingSpends+logisticsSpends+packagingSpends)),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.all(8),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
@@ -151,7 +153,7 @@ class ProductCF extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(height: 48,),
+                          // SizedBox(height: 48,),
 
                           /*
                           ChartLine(
@@ -173,6 +175,36 @@ class ProductCF extends StatelessWidget {
                       ),
                     ),
                     Container(
+                      child: Text(
+                          'ERC1155',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 80,
+                      width: 80,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          // invertColors: false,
+                          image: AssetImage('assets/images/nft.png'),
+                        )
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        'Block: 34565433',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 18,),
+                    Container(
                       width: double.infinity,
                       height: 60,
                       margin: EdgeInsets.all(8),
@@ -180,7 +212,7 @@ class ProductCF extends StatelessWidget {
                       child: TextButton(
                         style: TextButton.styleFrom(
                             foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                             backgroundColor: Colors.grey[700]
                           // backgroundColor: Color(0xFFFF7643),
                         ),
@@ -190,7 +222,7 @@ class ProductCF extends StatelessWidget {
                           _laumchURLBrowser();
                         },
                         child: Text(
-                          "Click To see complete JSON",
+                          "Click To See Complete JSON",
                           style: TextStyle(
                               fontSize: 24,
                               color: Colors.white,
@@ -225,7 +257,10 @@ class ProductCF extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8.0, top: 4),
       child: Text(
         title,
-        style: const TextStyle(fontSize: 18),
+        style: const TextStyle(
+            fontSize: 20,
+          fontWeight: FontWeight.bold
+        ),
       ),
     );
   }

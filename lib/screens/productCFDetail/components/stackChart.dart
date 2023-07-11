@@ -37,7 +37,7 @@ class StackedChart extends StatelessWidget {
       padding: const EdgeInsets.all(5.0),
       child: SizedBox(
         // height for controlling the chart height
-        height: 20,
+        height: 25,
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

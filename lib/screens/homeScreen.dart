@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sih_team_golf/screens/dashboard1/dashboard1.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/gamesDashboard.dart';
-import 'package:sih_team_golf/screens/profile.dart';
+import 'package:sih_team_golf/screens/profile/profile.dart';
 import 'package:sih_team_golf/screens/qrScanner/qrScanPage.dart';
 import 'package:sih_team_golf/screens/Reels/reels.dart';
 
