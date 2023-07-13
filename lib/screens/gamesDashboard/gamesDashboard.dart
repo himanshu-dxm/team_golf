@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/leaderboard.dart';
 
 
@@ -70,38 +71,6 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    TopCard(
-                        value: '5000',
-                        heading: 'Total Steps Walked'
-                    ),
-
-                    TopCard(
-                        value: '${_totalCoinsSpent} Points',
-                        heading: 'Total Spends'
-                    ),
-                  ],
-                ),
-
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    TopCard(
-                        value: '5th',
-                        heading: 'Leaderboard Rank'
-                    ),
-
-                    TopCard(
-                        value: '50% Complete',
-                        heading: 'Today\'s Tasks'
-                    ),
-                  ],
-                ),
-
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
@@ -132,7 +101,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   children: [
                                     Expanded(
                                       child: Text(
-                                        "value",
+                                        "5\u1d57\u02b0",
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 2,
                                         // '5M CO\u2082eq',
@@ -149,7 +118,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   height: 2,
                                 ),
                                 Text(
-                                  "heading",
+                                  "Rank",
                                   // 'Savings',
                                   style: TextStyle(
                                       color: Colors.white70,
@@ -188,7 +157,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "value",
+                                    "5423 ",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
                                     // '5M CO\u2082eq',
@@ -204,7 +173,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                 height: 2,
                               ),
                               Text(
-                                "heading",
+                                "Steps Walked",
                                 // 'Savings',
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -219,104 +188,107 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   ],
                 ),
 
-
-
-                // TODO : Horizontal Scroll Design
-                // CenterCards(),
-
-
-                // Transactions and View more Row
-
-                /*
-
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-
-                    // Heading
-                    Container(
+                Container(
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(()=>LeaderBoardScreen());
+                    },
+                    child: Card(
                       margin: const EdgeInsets.all(8),
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Products Bought",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.white
-                            ),
-                          ),
-                          SizedBox(width: 8,),
-                          Container(
-                            padding: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1,
-                                color: Colors.white
+                      elevation: 8,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18)),
+                      // color: Colors.white12,
+                      color: Colors.grey[800],
+                      clipBehavior: Clip.antiAlias,
+                      child: Container(
+                        // width: double.infinity,
+                        height: MediaQuery.of(context).size.height / 6,
+                        decoration: const BoxDecoration(
+                            color: Colors.black12
+                        ),
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                "45%",
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                // '5M CO\u2082eq',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),
                               ),
-                              borderRadius: BorderRadius.all(Radius.circular(10))
-
                             ),
-                            child: Text(
-                              "View more",
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Expanded(
+                                child: Container(
+                                  padding: EdgeInsets.all(8),
+                                  child: LinearPercentIndicator(
+                                    lineHeight: 40,
+                                    percent :0.45,
+                                    progressColor: Colors.green,
+                                    backgroundColor: Colors.black87,
+                                    animation: true,
+                                    animationDuration: 1000,
+                                    barRadius: Radius.circular(30),
+                                  ),
+                                ),
+                            ),
+                            SizedBox(height: 2,),
+                            Text(
+                              "Current Progress",
+                              // 'Savings',
                               style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white
-                              ),
+                                  color: Colors.white70,
+                                  fontSize: 18,
+                                  fontStyle: FontStyle.italic),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
+                  ),
+                ),
+                /*
 
-                    const SizedBox(height: 8,),
-                    // List
-                    FutureBuilder<List<Product>>(
-                      builder: (context, snapshot) {
-                        if(snapshot.connectionState == ConnectionState.done) {
-                          if(snapshot.hasData) {
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TopCard(
+                        value: '5th',
+                        heading: 'Leaderboard Rank'
+                    ),
 
-                            // List<Product> product = snapshot.data as List<Product>;
-                            return ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: snapshot.data!.length,
-                              itemBuilder: (c, index) {
-                                return Column(
-                                  children: [
-
-                                    TransactionCard(
-                                        carbonAmount: snapshot.data![index].totalCarbon,
-                                        title: snapshot.data![index].productName,
-                                        category: snapshot.data![index].description,
-                                        date: snapshot.data![index].weight.toString()
-                                    ),
-
-                                  ],
-                                );
-                              }
-                            );
-                          } else if (snapshot.hasError) {
-                            return Center(
-                              child: Text(snapshot.error.toString()),
-                            );
-                          } else {
-                            return Center(
-                              child: Text('Something Went Wrong!'),
-                            );
-                          }
-                        } else {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                      }, future: controller.getTransaction()
+                    TopCard(
+                        value: '50% Complete',
+                        heading: 'Today\'s Tasks'
                     ),
                   ],
                 ),
 
                  */
+
+
+                Container(
+                  padding: EdgeInsets.all(8),
+                  child: LinearPercentIndicator(
+                    lineHeight: 40,
+                    percent :0.45,
+                    progressColor: Colors.grey[800],
+                    backgroundColor: Colors.white,
+                    animation: true,
+                    animationDuration: 1000,
+                    barRadius: Radius.circular(30),
+                  ),
+                ),
 
               ],
             ),

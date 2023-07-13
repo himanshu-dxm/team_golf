@@ -27,7 +27,7 @@ class FocusText extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: const Text(
-            'Coins With you',
+            'Green Earnings of yours',
             style: TextStyle(color: Colors.white60),
           ),
         ),
