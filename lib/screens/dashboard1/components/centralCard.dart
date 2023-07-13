@@ -16,12 +16,12 @@ class CenterCards extends StatelessWidget {
       'Travel',
       'Gadgets'
     ];
-    List<double> values = [
-      0.255,
-      0.312,
-      0.093,
-      0.126,
-      0.264,
+    List<int> values = [
+      25,
+      31,
+      9,
+      12,
+      26,
     ];
     return Container(
       // margin: EdgeInsets.all(8),
@@ -51,12 +51,13 @@ class CenterCards extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                                '${(values[index]*100).toStringAsFixed(2) }%',
+                                '${values[index] }%',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold)
                             ),
+                            SizedBox(height: 1,),
                             Text(
                               '${categories[index]}',
                               style: TextStyle(

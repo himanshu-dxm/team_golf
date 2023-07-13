@@ -10,7 +10,7 @@ class Profile extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             // padding: EdgeInsets.all(8),
-            margin: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               color: Colors.grey[850]
@@ -35,14 +35,14 @@ class Profile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Name : Himanshu',
+                            'Himanshu',
                             style: TextStyle(
                               fontSize: 20
                             ),
                           ),
                           SizedBox(height: 4,),
                           Text(
-                            'Phone : 9934161540',
+                            '9934161540',
                             style: TextStyle(
                                 fontSize: 20
                             ),
