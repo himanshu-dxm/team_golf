@@ -12,9 +12,25 @@ class Header extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'Some App Motto and tagline',
-            style: TextStyle(color: Colors.green),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'A Greener future starts',
+                style: TextStyle(color: Colors.green,
+                fontSize: 20,
+                // fontWeight: FontWeight.bold
+                ),
+              ),
+              Text(
+                'With You',
+                style: TextStyle(color: Colors.green,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
           ),
           GestureDetector(
             onTap: () {

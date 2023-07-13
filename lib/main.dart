@@ -5,13 +5,9 @@ import 'package:sih_team_golf/firebase_options.dart';
 import 'package:sih_team_golf/helper/controller/transaction_controller.dart';
 import 'package:sih_team_golf/services/auth.dart';
 import 'package:sih_team_golf/screens/homeScreen.dart';
-import 'package:sih_team_golf/screens/login/login.dart';
-import 'package:sih_team_golf/screens/productDetails/productDetailsScreen.dart';
-import 'package:sih_team_golf/services/getProductData.dart';
 
 import 'model/Product.dart';
-import 'screens/productCFDetail/productCFDetail.dart';
-import 'screens/splashScreen.dart';
+import 'screens/login/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -63,7 +59,7 @@ class MyApp extends StatelessWidget {
       //   packagingSpends: 1500,
       // ),
 
-      // home: LoginScreen(),
+      // home: LoginPage(),
       home: HomeScreen(),
     );
   }

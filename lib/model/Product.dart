@@ -6,9 +6,9 @@ import 'package:sih_team_golf/model/user.dart';
 class Product {
   final String productName, description;
   final bool isRawMaterial;
-  final String weight,manufacturingAddress,productImage;
-  final double rating;
-  final int carbonFootPrint;
+  final String manufacturingAddress,productImage;
+  final double rating,weight;
+  final double carbonFootPrint;
   final List<Color> colors;
   final List<String> images;
   final double totalCarbon;
@@ -100,7 +100,7 @@ Product demoProduct = Product(
   productName: "Tata Nano",
   description: "Ev Car",
   isRawMaterial: false,
-  weight: "700",
+  weight: 700.0,
   carbonFootPrint: 120,
   manufacturingAddress: "Gujrat",
   productImage:

@@ -1,16 +1,34 @@
 import 'package:flutter/material.dart';
 
 class CenterCards extends StatelessWidget {
-  const CenterCards({super.key});
+
+  double totalCarbon;
+
+
+  CenterCards({super.key, required this.totalCarbon});
 
   @override
   Widget build(BuildContext context) {
+    List<String> categories = [
+      'Clothes',
+      'Food',
+      'Cosmetics',
+      'Travel',
+      'Gadgets'
+    ];
+    List<double> values = [
+      0.255,
+      0.312,
+      0.093,
+      0.126,
+      0.264,
+    ];
     return Container(
       // margin: EdgeInsets.all(8),
       // padding: EdgeInsets.all(8),
       height: 100,
       child: ListView.builder(
-        itemCount: 6,
+        itemCount: categories.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context,int index) {
@@ -33,14 +51,14 @@ class CenterCards extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                                '45',
+                                '${(values[index]*100).toStringAsFixed(2) }%',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold)
                             ),
                             Text(
-                              'Grocery$index',
+                              '${categories[index]}',
                               style: TextStyle(
                                   color: Colors.white70,
                                   fontSize: 18,

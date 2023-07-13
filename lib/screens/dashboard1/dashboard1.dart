@@ -76,8 +76,8 @@ class _Dashboard1State extends State<Dashboard1> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TopCard(
-                        value: '5000',
-                        heading: 'Carbonify Coins'
+                        value: '5237',
+                        heading: 'Green Earnings'
                     ),
 
                     TopCard(
@@ -88,7 +88,7 @@ class _Dashboard1State extends State<Dashboard1> {
                 ),
 
                 // TODO : Horizontal Scroll Design
-                CenterCards(),
+                CenterCards(totalCarbon: _totalCarbonOverall),
 
 
                 // Transactions and View more Row
@@ -105,7 +105,7 @@ class _Dashboard1State extends State<Dashboard1> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Products Bought",
+                            "Your Green Journey",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,

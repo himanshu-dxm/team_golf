@@ -4,9 +4,9 @@ import 'package:sih_team_golf/model/user.dart';
 
 class TransactionData {
   final String productName, description;
-  final String weight,manufacturingAddress,productImage;
-  final int carbonFootPrint;
-  final double totalCarbon;
+  final String manufacturingAddress,productImage;
+  final double carbonFootPrint;
+  final double weight,totalCarbon;
   final String date;
   final String uid;
 
@@ -70,7 +70,7 @@ TransactionData demoTransaction = TransactionData(
   totalCarbon: 22900.4,
   productName: "Tata Nano",
   description: "Ev Car",
-  weight: "700",
+  weight: 700,
   carbonFootPrint: 120,
   manufacturingAddress: "Gujrat",
   productImage:
