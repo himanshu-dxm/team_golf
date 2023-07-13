@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:sih_team_golf/screens/gamesDashboard/leaderboard.dart';
+import 'package:sih_team_golf/screens/gamesDashboard/components/leaderboard.dart';
 
 
 import 'components/focusText.dart';
@@ -21,9 +21,10 @@ class _GamesDashboardState extends State<GamesDashboard> {
   // final controller = Get.put(TransactionController());
 
   double _totalCoins = 10000;
-  double _totalCoinsSpent = 1000;
   double tmp=1000;
+  double _taskProgress = 0.10;
 
+  bool taskDone = false;
 
   @override
   void initState() {
@@ -111,7 +112,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    Icon(Icons.circle)
+                                    Icon(Icons.circle,)
                                   ],
                                 ),
                                 SizedBox(
@@ -224,15 +225,12 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
-                            SizedBox(
-                              height: 2,
-                            ),
                             Expanded(
                                 child: Container(
                                   padding: EdgeInsets.all(8),
                                   child: LinearPercentIndicator(
                                     lineHeight: 40,
-                                    percent :0.45,
+                                    percent : _taskProgress,
                                     progressColor: Colors.green,
                                     backgroundColor: Colors.black87,
                                     animation: true,
@@ -256,27 +254,169 @@ class _GamesDashboardState extends State<GamesDashboard> {
                     ),
                   ),
                 ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.all(8),
+                  child: Text(
+                    "Today's Tasks",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white
+                    ),
+                  ),
+                ),
+
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text('Task Title'),
+                          content: Text(
+                              ' Task Description'
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    taskDone = true;
+                                    _totalCoins += 150;
+                                  });
+
+                                  Navigator.pop(context);
+                                },
+                                child: Text('Yes')),
+                            TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    taskDone = false;
+                                  });
+                                  Navigator.pop(context);
+                                },
+                                child: Text('No'))
+                          ],
+                        ));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    width: MediaQuery.of(context).size.width*0.95,
+                    decoration: BoxDecoration(
+                        color: Colors.grey[800],
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    child: Row(
+                      // mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(8),
+                              margin: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.all(Radius.circular(16)),
+
+                              ),
+                              child: Center(
+                                child: Text(
+                                    '+150 ',
+                                )
+                              ),
+                            ),
+
+                            Container(
+                              padding: EdgeInsets.all(8),
+                              // margin: EdgeInsets.all(8),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Task 1',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18
+                                    ),
+                                  ),
+                                  Text(
+                                    "Walk | Short Decsription" ,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: Colors.white60
+                                    ),
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            padding: EdgeInsets.all(8),
+                            margin: EdgeInsets.all(8),
+                            child: Icon(
+                              Icons.circle_rounded,
+                              // size: 24,
+                              color: taskDone ? Colors.green : Colors.white,
+                            )
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+
+
+
+                // sample alertDialog button
                 /*
+                MaterialButton(
+                  onPressed: () {
 
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    TopCard(
-                        value: '5th',
-                        heading: 'Leaderboard Rank'
-                    ),
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text('Task Title'),
+                              content: Text(
+                                  ' Task Description \n Did you finish this task?',
+                              ),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        taskDone = true;
+                                        _totalCoins += 150;
+                                      });
 
-                    TopCard(
-                        value: '50% Complete',
-                        heading: 'Today\'s Tasks'
-                    ),
-                  ],
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('Yes')),
+                                TextButton(
+                                    onPressed: () {
+
+                                      setState(() {
+                                        taskDone = false;
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('No'))
+                              ],
+                            ));
+                  },
+                  child: Text('Press me'),
                 ),
 
                  */
 
+                // progress bar
 
+                /*
                 Container(
                   padding: EdgeInsets.all(8),
                   child: LinearPercentIndicator(
@@ -290,6 +430,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   ),
                 ),
 
+                 */
+
               ],
             ),
           ),
@@ -298,3 +440,4 @@ class _GamesDashboardState extends State<GamesDashboard> {
     );
   }
 }
+

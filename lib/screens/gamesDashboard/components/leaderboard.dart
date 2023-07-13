@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../utilities/themes.dart';
+import '../../../utilities/themes.dart';
 
 class LeaderBoardScreen extends StatelessWidget {
   const LeaderBoardScreen({super.key});

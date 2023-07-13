@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sih_team_golf/screens/gamesDashboard/leaderboard.dart';
+import 'package:sih_team_golf/screens/gamesDashboard/components/leaderboard.dart';
 
 
 class Header extends StatelessWidget {
