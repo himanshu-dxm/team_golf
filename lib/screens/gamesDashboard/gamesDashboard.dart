@@ -17,6 +17,14 @@ class GamesDashboard extends StatefulWidget {
 }
 
 class _GamesDashboardState extends State<GamesDashboard> {
+
+  callbackTask(totalCoins,taskProgress,taskDone) {
+    setState(() {
+      _totalCoins =  totalCoins;
+      _taskProgress = taskProgress;
+      this.taskDone = taskDone;
+    });
+  }
   
   // final controller = Get.put(TransactionController());
 
@@ -51,7 +59,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                 // Top Coins and Profile
                 // Header.header(context , 1000, "Hello"),
 
-                Header(),
+                Header(totalCoins: _totalCoins),
 
 
                 const SizedBox(

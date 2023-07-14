@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/components/leaderboard.dart';
+import 'package:sih_team_golf/screens/gamesDashboard/components/vouchersPage.dart';
 
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  double totalCoins;
+  Header({super.key,required this.totalCoins});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,8 @@ class Header extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (ctx)=>LeaderBoardScreen()));
+              Get.to(()=>VouchersPage());
+              // Navigator.push(context, MaterialPageRoute(builder: (ctx)=>LeaderBoardScreen()));
             },
             child: Container(
                 decoration: const BoxDecoration(
