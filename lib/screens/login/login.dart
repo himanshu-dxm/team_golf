@@ -44,7 +44,9 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-        child: Center(
+        child: Container(
+          color: Colors.black87,
+          alignment: Alignment.center,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -80,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey[800],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -113,6 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                           fillColor: Colors.black87,
                             border: InputBorder.none,
                             hintText: " Enter Phone",
+
                             hintStyle: TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
@@ -165,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     padding: const EdgeInsets.all(20.0),
                     decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Colors.grey[700],
                         borderRadius: BorderRadius.circular(12)
                     ),
                     child: const Center(

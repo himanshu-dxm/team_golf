@@ -23,8 +23,8 @@ class _Dashboard1State extends State<Dashboard1> {
   final controller = Get.put(TransactionController());
 
   int _indexHorizontal = 0;
-  double _totalCarbonSpent = 1000;
-  double _totalCarbonOverall = 10000;
+  double _totalCarbonSpent = 0.0;
+  double _totalCarbonOverall = 10.0;
   double tmp=1000;
 
 
