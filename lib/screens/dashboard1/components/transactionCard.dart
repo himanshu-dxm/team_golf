@@ -72,7 +72,7 @@ class TransactionCard extends StatelessWidget {
             padding: EdgeInsets.all(8),
             margin: EdgeInsets.all(8),
             child: Text(
-              carbonAmount.toString()+"Kg",
+              carbonAmount.toStringAsFixed(3).toString()+" Kg",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 18

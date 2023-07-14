@@ -29,13 +29,13 @@ class Product {
   
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-        carbonFootPrint: json["productDetails"]["carbonFootPrint"],
+        carbonFootPrint: json["productDetails"]["carbonFootPrint"].toDouble(),
         isRawMaterial: json["productDetails"]["isRawMaterial"],
         manufacturingAddress: json["productDetails"]["manufacturingAddress"],
         productImage: json["productDetails"]["productImage"],
         productName: json["productDetails"]["productName"],
         description: json["productDetails"]["description"],
-        weight: json["productDetails"]["weight"],
+        weight: json["productDetails"]["weight"].toDouble(),
         colors: [
           Color(0xFFF6625E),
           Color(0xFF836DB8),
@@ -48,7 +48,7 @@ class Product {
           "assets/images/ps4_console_white_3.png",
           "assets/images/ps4_console_white_4.png",
         ],
-      totalCarbon: json["totalCarbon"],
+      totalCarbon: json["totalCarbon"].toDouble(),
     );
   }
 

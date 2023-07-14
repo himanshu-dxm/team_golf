@@ -11,8 +11,10 @@ class JSONDetails {
     final url = Uri.parse(_baseUrl+productId);
     try {
       final response = await http.get(url);
+      print("URL: "+url.toString());
 
       if (response.statusCode == 200) {
+        print(response.body);
         return Product.fromJson(jsonDecode(response.body));
       }
       else {

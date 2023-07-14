@@ -54,7 +54,7 @@ class Header extends StatelessWidget {
                     borderRadius:
                     BorderRadius.all(Radius.circular(18))),
                 child: const Icon(
-                  Icons.account_circle,
+                  Icons.logout_rounded,
                   size: 32,
                   color: Colors.black,
                 )),

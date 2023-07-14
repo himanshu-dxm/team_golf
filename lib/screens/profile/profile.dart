@@ -139,7 +139,7 @@ class Profile extends StatelessWidget {
                       )
                   ),
                 ),
-                SizedBox(height: 8,),
+                const SizedBox(height: 8,),
                 GestureDetector(
                   onTap: () {
                     print("Logout tapped");

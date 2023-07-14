@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:sih_team_golf/helper/constants.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/components/leaderboard.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/components/singleTaskScreen.dart';
 
@@ -71,7 +72,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
   double _totalCoins = 10000;
   double tmp=1000;
-  double _taskProgress = 0.10;
+  double _taskProgress = 0.0;
 
   bool task1Done = false;
   bool task2Done = false;
@@ -328,6 +329,127 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   child: Column(
                     children: [
 
+                      // Task 4
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                title: Text('Cut Down Dairy Products'),
+                                content: MyTaskCard(
+                                  id: 3,
+                                  title: 'Cut Down on Dairy Products',
+                                  description: 'Dairy products are one of the most carbon intensive products due to change in land use, release of methane from cow’s digestion process and the use of pesticides and fertilizers for their food. \n\n\tDairy is 3x more carbon intensive than other plant-based milk!',
+                                  trees: 0.1,
+                                  carbonSaved: 2.2,
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        if(!task4Done && _taskProgress <=0.75) {
+                                          setState(() {
+                                            task4Done = true;
+                                            _totalCoins += 150;
+                                            _taskProgress += 0.25;
+                                          });
+                                        }
+
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Yes')),
+                                  TextButton(
+                                      onPressed: () {
+
+                                        setState(() {
+                                          task4Done = false;
+
+                                          if(_taskProgress>=0.25) {
+                                            _totalCoins -= 150;
+                                            _taskProgress -= 0.25;
+                                          }
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('No'))
+                                ],
+                              ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(8),
+                          width: MediaQuery.of(context).size.width*0.95,
+                          decoration: BoxDecoration(
+                              color: Colors.grey[800],
+                              borderRadius: BorderRadius.all(Radius.circular(10))
+                          ),
+                          child: Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                          '+150 ',
+                                        )
+                                    ),
+                                  ),
+
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    // margin: EdgeInsets.all(8),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Cut Dairy Products Usage',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18
+                                          ),
+                                        ),
+                                        Text(
+                                          "Use Other Alternatives" ,
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Colors.white60
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Expanded(
+                                child: Container(
+                                    alignment: Alignment.centerRight,
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    child: Icon(
+                                      Icons.circle_rounded,
+                                      // size: 24,
+                                      color: task4Done ? Colors.green : Colors.white,
+                                    )
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+
+
                       // Task 1
                       GestureDetector(
                         onTap: () {
@@ -335,11 +457,13 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Task Title'),
+                                title: Text('Learn Something New'),
                                 content: MyTaskCard(
                                   id: 1,
-                                    title: 'Watch an Ad',
-                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                    title: 'Watch our reels',
+                                  description: '\tLearn something new about the environment today! \n\n\tIn this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! \n\n\tHead on over to the reels content to start learning today!',
+                                  trees: 0.1,
+                                  carbonSaved: 0.1,
                                 ),
                                 actions: [
                                   TextButton(
@@ -360,8 +484,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         setState(() {
                                           task1Done = false;
-                                          _totalCoins -= 150;
-                                          if(_taskProgress>=0.25) {
+                                           if(_taskProgress>=0.25) {
+                                            _totalCoins -= 150;
                                             _taskProgress -= 0.25;
                                           }
                                         });
@@ -407,14 +531,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Task 1',
+                                          'Learn Something New',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 18
                                           ),
                                         ),
                                         Text(
-                                          "Walk | Related To walking" ,
+                                          "Go to our reels section",
                                           maxLines: 3,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
@@ -453,11 +577,13 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Task Title 2'),
+                                title: Text('Complete 7000 steps'),
                                 content: MyTaskCard(
                                   id: 2,
-                                  title: 'Watch an Ad',
-                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                  title: 'Go for Walk',
+                                  description: 'Walking is a form of exercise which will be beneficial to your health and wellbeing! \n\n\tWhen you choose to walk, you are producing very little carbon footprint, making it the most environmentally friendly mode of transportation!',
+                                  carbonSaved: 0.54,
+                                  trees: 0.03,
                                 ),
                                 actions: [
                                   TextButton(
@@ -478,8 +604,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         setState(() {
                                           task2Done = false;
-                                          _totalCoins -= 150;
                                           if(_taskProgress>=0.25) {
+                                            _totalCoins -= 150;
                                             _taskProgress -= 0.25;
                                           }
                                         });
@@ -525,14 +651,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Task 2',
+                                          'Walking',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 18
                                           ),
                                         ),
                                         Text(
-                                          "Walk | Short Decsription" ,
+                                          "Go out for a walk" ,
                                           maxLines: 3,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
@@ -571,11 +697,13 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Task Title'),
+                                title: Text('Air Dry Clothes'),
                                 content: MyTaskCard(
                                   id: 3,
-                                  title: 'Watch an Ad',
-                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                  title: 'Air Dry Clothes',
+                                  description: 'Air drying your clothes is beneficial to the environment! \n\n\tBy not using the dryer, you will save energy, money and even extend the lifespan of your clothes. \n\n\tAir drying will give you more bang for your buck',
+                                  carbonSaved: 3,
+                                  trees: 0.14,
                                 ),
                                 actions: [
                                   TextButton(
@@ -596,8 +724,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         setState(() {
                                           task3Done = false;
-                                          _totalCoins -= 150;
                                           if(_taskProgress>=0.25) {
+                                            _totalCoins -= 150;
                                             _taskProgress -= 0.25;
                                           }
                                         });
@@ -643,14 +771,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Task 1',
+                                          'Air Dry Clothes',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 18
                                           ),
                                         ),
                                         Text(
-                                          "Walk | Short Decsription" ,
+                                          "Dry your clothes in air" ,
                                           maxLines: 3,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
@@ -682,122 +810,6 @@ class _GamesDashboardState extends State<GamesDashboard> {
                       ),
 
 
-                      // Task 4
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Task Title'),
-                                content: MyTaskCard(
-                                  id: 3,
-                                  title: 'Watch an Ad',
-                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
-                                ),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        if(!task3Done && _taskProgress <=0.75) {
-                                          setState(() {
-                                            task4Done = true;
-                                            _totalCoins += 150;
-                                            _taskProgress += 0.25;
-                                          });
-                                        }
-
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text('Yes')),
-                                  TextButton(
-                                      onPressed: () {
-
-                                        setState(() {
-                                          task4Done = false;
-                                          _totalCoins -= 150;
-                                          if(_taskProgress>=0.25) {
-                                            _taskProgress -= 0.25;
-                                          }
-                                        });
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text('No'))
-                                ],
-                              ));
-                        },
-                        child: Container(
-                          margin: EdgeInsets.all(8),
-                          width: MediaQuery.of(context).size.width*0.95,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[800],
-                              borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
-                          child: Row(
-                            // mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.all(Radius.circular(16)),
-
-                                    ),
-                                    child: Center(
-                                        child: Text(
-                                          '+150 ',
-                                        )
-                                    ),
-                                  ),
-
-                                  Container(
-                                    padding: EdgeInsets.all(8),
-                                    // margin: EdgeInsets.all(8),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Task 4',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18
-                                          ),
-                                        ),
-                                        Text(
-                                          "Walk | Short Decsription" ,
-                                          maxLines: 3,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: Colors.white60
-                                          ),
-                                        )
-
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                              Expanded(
-                                child: Container(
-                                    alignment: Alignment.centerRight,
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
-                                    child: Icon(
-                                      Icons.circle_rounded,
-                                      // size: 24,
-                                      color: task4Done ? Colors.green : Colors.white,
-                                    )
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),

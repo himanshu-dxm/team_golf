@@ -8,11 +8,12 @@ import 'package:sih_team_golf/screens/homeScreen.dart';
 
 import 'model/Product.dart';
 import 'screens/login/login.dart';
+import 'services/getProductData.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // JSONDetails.getProductData("bafkreichbprxsxxltpobrrfvpsad77ufg6rsdrofthz7sxobm2xp6bjy2q");
+  // JSONDetails.getProductData("bafkreien4wdblcjjykpzrwxvvvwfib32pzwnbos4egjflhommtacn42uaa");
 
   await initializations();
   runApp(const MyApp());

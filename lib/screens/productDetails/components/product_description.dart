@@ -80,7 +80,6 @@ class ProductDescription extends StatelessWidget {
             onTap: () {
               // ProductCF(product: this.product);
               Navigator.push(
-
                   context,
                   MaterialPageRoute(builder: (ctx) =>
                   ProductCF(
@@ -120,11 +119,11 @@ class ProductDescription extends StatelessWidget {
             top: getProportionateScreenHeight(16),
           ),
           child: Text(
-            "Total Carbon  : ${product.totalCarbon}",
+            "Total Carbon : ${product.totalCarbon.toStringAsFixed(2)} KgCO\u2082eq",
             maxLines: 3,
             style: TextStyle(
                 color: Colors.white,
-                fontSize: 28,
+                fontSize: 22,
                 fontWeight: FontWeight.bold),
           ),
         ),
