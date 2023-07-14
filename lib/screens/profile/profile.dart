@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../services/auth.dart';
+
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
@@ -138,21 +140,27 @@ class Profile extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8,),
-                Container(
-                  height: 50,
-                  padding: EdgeInsets.all(8),
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.center,
-                  // color: Colors.black87,
-                  decoration: BoxDecoration(
-                    color: Colors.black87,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                      'Logout',
-                      style: TextStyle(
-                        fontSize: 20,
-                      )
+                GestureDetector(
+                  onTap: () {
+                    print("Logout tapped");
+                    AuthenticationRepository.instance.logout();
+                  },
+                  child: Container(
+                    height: 50,
+                    padding: EdgeInsets.all(8),
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    // color: Colors.black87,
+                    decoration: BoxDecoration(
+                      color: Colors.black87,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                        'Logout',
+                        style: TextStyle(
+                          fontSize: 20,
+                        )
+                    ),
                   ),
                 ),
                 SizedBox(height: 150,),
