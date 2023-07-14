@@ -12,26 +12,38 @@ class Header extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'A Greener future starts',
-                style: TextStyle(color: Colors.green,
-                fontSize: 20,
-                // fontWeight: FontWeight.bold
+              Container(
+                child: Image.asset("assets/icon/foot.png",
+                  scale: 3,
                 ),
               ),
-              Text(
-                'With You',
-                style: TextStyle(color: Colors.green,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'A Greener future starts',
+                    style: TextStyle(color: Colors.green,
+                      fontSize: 20,
+                      // fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  Text(
+                    'With You',
+                    style: TextStyle(color: Colors.green,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
+
           GestureDetector(
             onTap: () {
               AuthenticationRepository.instance.logout();
@@ -46,7 +58,7 @@ class Header extends StatelessWidget {
                   size: 32,
                   color: Colors.black,
                 )),
-          )
+          ),
         ],
       ),
     );
