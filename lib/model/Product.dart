@@ -12,6 +12,8 @@ class Product {
   final List<Color> colors;
   final List<String> images;
   final double totalCarbon;
+  final double carbonOffset;
+  final double water;
 
   Product({
     required this.carbonFootPrint,
@@ -25,6 +27,8 @@ class Product {
     required this.colors,
     required this.images,
     required this.totalCarbon,
+    required this.carbonOffset,
+    required this.water
   });
   
   factory Product.fromJson(Map<String, dynamic> json) {
@@ -49,6 +53,8 @@ class Product {
           "assets/images/ps4_console_white_4.png",
         ],
       totalCarbon: json["totalCarbon"].toDouble(),
+      carbonOffset: json["carbonOffset"].toDouble(),
+      water: json["water"].toDouble()
     );
   }
 
@@ -64,6 +70,8 @@ class Product {
       "productImage": productImage,
       "date": DateTime.now().toString(),
       "uid": UserUID.userUID,
+      "carbonOffset" : carbonOffset,
+      "water" : water
     };
   }
 
@@ -76,7 +84,8 @@ class Product {
         productImage: data["productImage"],
         productName: data["productName"],
         description: data["description"],
-        weight: data["weight"],
+        weight: data["weight"].toDouble(),
+        carbonOffset: data["carbonOffset"].toDouble(),
         colors: [
           Color(0xFFF6625E),
           Color(0xFF836DB8),
@@ -89,7 +98,8 @@ class Product {
           "assets/images/ps4_console_white_3.png",
           "assets/images/ps4_console_white_4.png",
         ],
-        totalCarbon: data["totalCarbon"]
+        totalCarbon: data["totalCarbon"].toDouble(),
+        water: data["water"].toDouble(),
     );
   }
 
@@ -117,6 +127,8 @@ Product demoProduct = Product(
     Color(0xFFDECB9C),
     Colors.white,
   ],
+    carbonOffset: 2.783,
+  water: 2030.77
 );
 
 // Our demo Products

@@ -9,6 +9,7 @@ class TransactionData {
   final double weight,totalCarbon;
   final String date;
   final String uid;
+  final double carbonOffset,water;
 
   TransactionData({
     required this.carbonFootPrint,
@@ -20,6 +21,8 @@ class TransactionData {
     required this.totalCarbon,
     required this.date,
     required this.uid,
+    required this.carbonOffset,
+    required this.water
   });
 
   factory TransactionData.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
@@ -34,6 +37,8 @@ class TransactionData {
         totalCarbon: data["totalCarbon"],
       date: data["data"],
       uid: data["uid"],
+      carbonOffset: data["carbonOffset"],
+      water: data["water"]
     );
   }
 
@@ -46,7 +51,9 @@ class TransactionData {
       "carbonFootPrint": carbonFootPrint,
       "manufacturingAddress": manufacturingAddress,
       "productImage": productImage,
-      "date": DateTime.now().toString()
+      "date": DateTime.now().toString(),
+      "carbonOffset" : carbonOffset,
+      "water": water
     };
   }
 
@@ -67,6 +74,8 @@ class TransactionData {
 }
 
 TransactionData demoTransaction = TransactionData(
+  carbonOffset: 2.83,
+  water: 2030.77,
   totalCarbon: 22900.4,
   productName: "Tata Nano",
   description: "Ev Car",

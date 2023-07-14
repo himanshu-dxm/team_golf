@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 class FocusText extends StatelessWidget {
   final String totalMonthlySpend;
-  FocusText({super.key, required this.totalMonthlySpend});
+  final String equivalentCoal;
+  FocusText({
+    super.key,
+    required this.totalMonthlySpend,
+    required this.equivalentCoal
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +31,21 @@ class FocusText extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: const Text(
-            'Spend this month',
-            style: TextStyle(color: Colors.white60),
+          child: Row(
+            children: [
+              Text(
+                'Equivalent to ',
+                style: TextStyle(color: Colors.white60),
+              ),
+              Text(
+                '${equivalentCoal} Kg',
+                style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),
+              ),
+              Text(
+                ' of Coal burnt',
+                style: TextStyle(color: Colors.white60),
+              ),
+            ],
           ),
         ),
       ],

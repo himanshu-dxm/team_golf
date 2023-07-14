@@ -88,6 +88,8 @@ class ProductDescription extends StatelessWidget {
                     totalCarbon: product.totalCarbon,
                     productName: product.productName,
                     packagingSpends: product.totalCarbon*0.15,
+                    carbonOffset: product.carbonOffset,
+                    water: product.water,
                   )
                   )
               );

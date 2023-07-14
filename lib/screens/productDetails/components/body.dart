@@ -39,6 +39,8 @@ class Body extends StatelessWidget {
                             totalCarbon: product.totalCarbon,
                             productName: product.productName,
                             packagingSpends: product.totalCarbon*0.15,
+                            water: product.water,
+                            carbonOffset: product.carbonOffset,
                           )
                       )
                   );

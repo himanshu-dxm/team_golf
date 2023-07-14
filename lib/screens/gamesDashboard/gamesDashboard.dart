@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:sih_team_golf/helper/constants.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/components/leaderboard.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/components/singleTaskScreen.dart';
 
 
 import 'components/focusText.dart';
 import 'components/header.dart';
-import 'components/topCard.dart';
 
 
 class GamesDashboard extends StatefulWidget {
@@ -127,7 +125,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(()=>LeaderBoardScreen());
+                        Get.to(()=>const LeaderBoardScreen());
                       },
                       child: Card(
                         margin: const EdgeInsets.all(8),
@@ -144,7 +142,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               color: Colors.black12
                           ),
                           padding: const EdgeInsets.all(8),
-                          child: Column(
+                          child: const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -201,7 +199,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                             color: Colors.black12
                         ),
                         padding: const EdgeInsets.all(8),
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -245,7 +243,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
               Container(
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(()=>LeaderBoardScreen());
+                    Get.to(()=>const LeaderBoardScreen());
                   },
                   child: Card(
                     margin: const EdgeInsets.all(8),
@@ -272,7 +270,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                               // '5M CO\u2082eq',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold),
@@ -280,7 +278,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                           ),
                           Expanded(
                               child: Container(
-                                padding: EdgeInsets.all(8),
+                                padding: const EdgeInsets.all(8),
                                 child: LinearPercentIndicator(
                                   lineHeight: 40,
                                   percent : _taskProgress,
@@ -288,12 +286,12 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   backgroundColor: Colors.black87,
                                   animation: true,
                                   animationDuration: 1000,
-                                  barRadius: Radius.circular(30),
+                                  barRadius: const Radius.circular(30),
                                 ),
                               ),
                           ),
-                          SizedBox(height: 2,),
-                          Text(
+                          const SizedBox(height: 2,),
+                          const Text(
                             "Current Progress",
                             // 'Savings',
                             style: TextStyle(
@@ -310,9 +308,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
 
               Container(
-                padding: EdgeInsets.all(8),
-                margin: EdgeInsets.all(8),
-                child: Text(
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
+                child: const Text(
                   "Today's Tasks",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -336,7 +334,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Cut Down Dairy Products'),
+                                title: const Text('Cut Down Dairy Products'),
                                 content: MyTaskCard(
                                   id: 3,
                                   title: 'Cut Down on Dairy Products',
@@ -357,7 +355,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Yes')),
+                                      child: const Text('Yes')),
                                   TextButton(
                                       onPressed: () {
 
@@ -371,16 +369,16 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                         });
                                         Navigator.pop(context);
                                       },
-                                      child: Text('No'))
+                                      child: const Text('No'))
                                 ],
                               ));
                         },
                         child: Container(
-                          margin: EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(8),
                           width: MediaQuery.of(context).size.width*0.95,
                           decoration: BoxDecoration(
                               color: Colors.grey[800],
-                              borderRadius: BorderRadius.all(Radius.circular(10))
+                              borderRadius: const BorderRadius.all(Radius.circular(10))
                           ),
                           child: Row(
                             // mainAxisSize: MainAxisSize.min,
@@ -389,14 +387,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Row(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.all(Radius.circular(16)),
 
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                         child: Text(
                                           '+150 ',
                                         )
@@ -404,9 +402,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   ),
 
                                   Container(
-                                    padding: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
                                     // margin: EdgeInsets.all(8),
-                                    child: Column(
+                                    child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -435,8 +433,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Expanded(
                                 child: Container(
                                     alignment: Alignment.centerRight,
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
                                     child: Icon(
                                       Icons.circle_rounded,
                                       // size: 24,
@@ -457,7 +455,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Learn Something New'),
+                                title: const Text('Learn Something New'),
                                 content: MyTaskCard(
                                   id: 1,
                                     title: 'Watch our reels',
@@ -478,7 +476,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Yes')),
+                                      child: const Text('Yes')),
                                   TextButton(
                                       onPressed: () {
 
@@ -491,16 +489,16 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                         });
                                         Navigator.pop(context);
                                       },
-                                      child: Text('No'))
+                                      child: const Text('No'))
                                 ],
                               ));
                         },
                         child: Container(
-                          margin: EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(8),
                           width: MediaQuery.of(context).size.width*0.95,
                           decoration: BoxDecoration(
                               color: Colors.grey[800],
-                              borderRadius: BorderRadius.all(Radius.circular(10))
+                              borderRadius: const BorderRadius.all(Radius.circular(10))
                           ),
                           child: Row(
                             // mainAxisSize: MainAxisSize.min,
@@ -509,14 +507,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Row(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.all(Radius.circular(16)),
 
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                           '+150 ',
                                       )
@@ -524,9 +522,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   ),
 
                                   Container(
-                                    padding: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
                                     // margin: EdgeInsets.all(8),
-                                    child: Column(
+                                    child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -555,8 +553,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Expanded(
                                 child: Container(
                                   alignment: Alignment.centerRight,
-                                  padding: EdgeInsets.all(8),
-                                  margin: EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(8),
+                                  margin: const EdgeInsets.all(8),
                                   child: Icon(
                                     Icons.circle_rounded,
                                     // size: 24,
@@ -577,7 +575,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Complete 7000 steps'),
+                                title: const Text('Complete 7000 steps'),
                                 content: MyTaskCard(
                                   id: 2,
                                   title: 'Go for Walk',
@@ -598,7 +596,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Yes')),
+                                      child: const Text('Yes')),
                                   TextButton(
                                       onPressed: () {
 
@@ -611,16 +609,16 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                         });
                                         Navigator.pop(context);
                                       },
-                                      child: Text('No'))
+                                      child: const Text('No'))
                                 ],
                               ));
                         },
                         child: Container(
-                          margin: EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(8),
                           width: MediaQuery.of(context).size.width*0.95,
                           decoration: BoxDecoration(
                               color: Colors.grey[800],
-                              borderRadius: BorderRadius.all(Radius.circular(10))
+                              borderRadius: const BorderRadius.all(Radius.circular(10))
                           ),
                           child: Row(
                             // mainAxisSize: MainAxisSize.min,
@@ -629,14 +627,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Row(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.all(Radius.circular(16)),
 
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                         child: Text(
                                           '+150 ',
                                         )
@@ -644,9 +642,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   ),
 
                                   Container(
-                                    padding: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
                                     // margin: EdgeInsets.all(8),
-                                    child: Column(
+                                    child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -675,8 +673,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Expanded(
                                 child: Container(
                                     alignment: Alignment.centerRight,
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
                                     child: Icon(
                                       Icons.circle_rounded,
                                       // size: 24,
@@ -697,7 +695,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               context: context,
                               builder: (context) => AlertDialog(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: Text('Air Dry Clothes'),
+                                title: const Text('Air Dry Clothes'),
                                 content: MyTaskCard(
                                   id: 3,
                                   title: 'Air Dry Clothes',
@@ -718,7 +716,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
 
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Yes')),
+                                      child: const Text('Yes')),
                                   TextButton(
                                       onPressed: () {
 
@@ -731,16 +729,16 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                         });
                                         Navigator.pop(context);
                                       },
-                                      child: Text('No'))
+                                      child: const Text('No'))
                                 ],
                               ));
                         },
                         child: Container(
-                          margin: EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(8),
                           width: MediaQuery.of(context).size.width*0.95,
                           decoration: BoxDecoration(
                               color: Colors.grey[800],
-                              borderRadius: BorderRadius.all(Radius.circular(10))
+                              borderRadius: const BorderRadius.all(Radius.circular(10))
                           ),
                           child: Row(
                             // mainAxisSize: MainAxisSize.min,
@@ -749,14 +747,14 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Row(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.all(Radius.circular(16)),
 
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                         child: Text(
                                           '+150 ',
                                         )
@@ -764,9 +762,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   ),
 
                                   Container(
-                                    padding: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
                                     // margin: EdgeInsets.all(8),
-                                    child: Column(
+                                    child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -795,8 +793,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                               Expanded(
                                 child: Container(
                                     alignment: Alignment.centerRight,
-                                    padding: EdgeInsets.all(8),
-                                    margin: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
                                     child: Icon(
                                       Icons.circle_rounded,
                                       // size: 24,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:sih_team_golf/screens/productCFDetail/components/stackChart.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -9,6 +10,7 @@ class ProductCF extends StatelessWidget {
   final String productName;
   final double totalCarbon;
   final double manufacturingSpends, logisticsSpends, packagingSpends;
+  final double carbonOffset, water;
   // Product product;
   ProductCF({
     super.key,
@@ -16,7 +18,9 @@ class ProductCF extends StatelessWidget {
     required this.logisticsSpends,
     required this.totalCarbon,
     required this.productName,
-    required this.packagingSpends
+    required this.packagingSpends,
+    required this.carbonOffset,
+    required this.water
   });
 
   @override
@@ -75,6 +79,8 @@ class ProductCF extends StatelessWidget {
                   children: [
                     _title('Carbon Footprint Distribution'),
                     _title('Product Name : ${productName}'),
+
+
                     StackedChart(
                       total: totalCarbon,
                       manufacturing: manufacturingSpends,
@@ -182,9 +188,35 @@ class ProductCF extends StatelessWidget {
 
                            */
 
+
+
+
                         ]
                       ),
                     ),
+
+                    Container(
+                      padding: EdgeInsets.all(8),
+                      margin: EdgeInsets.all(8),
+                      child: Text(
+                        'Carbon Offset percentage'
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        child: LinearPercentIndicator(
+                          lineHeight: 40,
+                          percent : carbonOffset/totalCarbon,
+                          progressColor: Colors.green,
+                          backgroundColor: Colors.black87,
+                          animation: true,
+                          animationDuration: 1000,
+                          barRadius: const Radius.circular(30),
+                        ),
+                      ),
+                    ),
+
                     Container(
                       child: Text(
                           'ERC1155',
