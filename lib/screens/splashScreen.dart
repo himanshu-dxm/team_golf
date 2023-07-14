@@ -106,7 +106,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         child: Container(
           width: MediaQuery.of(context).size.width*0.8,
           decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/icon/splash.png")
+              image: DecorationImage(image: AssetImage("assets/icon/foot.png")
               )
           ),
         ),

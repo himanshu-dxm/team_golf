@@ -246,7 +246,7 @@ class _OTPScreenState extends State<OTPScreen> {
               child: Row(
                 children: [
                   Text(
-                    '+91******${widget.phoneNumber.substring(9)}',
+                    '${widget.phoneNumber.substring(0,3)}******${widget.phoneNumber.substring(9)}',
                     style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,

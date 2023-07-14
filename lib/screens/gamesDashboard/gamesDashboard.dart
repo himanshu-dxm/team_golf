@@ -215,7 +215,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                           children: [
                             Expanded(
                               child: Text(
-                                "45%",
+                                "${(_taskProgress*100).toStringAsFixed(0)}%",
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                                 // '5M CO\u2082eq',
@@ -279,18 +279,24 @@ class _GamesDashboardState extends State<GamesDashboard> {
                           actions: [
                             TextButton(
                                 onPressed: () {
-                                  setState(() {
-                                    taskDone = true;
-                                    _totalCoins += 150;
-                                  });
+                                  if(!taskDone && _taskProgress <=0.75) {
+                                    setState(() {
+                                      taskDone = true;
+                                      _totalCoins += 150;
+                                      _taskProgress += 0.25;
+                                    });
+                                  }
 
                                   Navigator.pop(context);
                                 },
                                 child: Text('Yes')),
                             TextButton(
                                 onPressed: () {
+
                                   setState(() {
                                     taskDone = false;
+                                    _totalCoins -= 150;
+                                    _taskProgress -= 0.25;
                                   });
                                   Navigator.pop(context);
                                 },
@@ -371,6 +377,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                     ),
                   ),
                 ),
+
+
 
 
 

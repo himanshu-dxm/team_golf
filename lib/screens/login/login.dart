@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   void authenticate() {
     if(_formKey.currentState!.validate()) {
       print("validating data and sending otp");
-      String phoneNo = "+91${controller.phoneNumberController.text.trim()}";
+      String phoneNo = "${controller.phoneNumberController.text.trim()}";
       SignUpController.instance.phoneAuthentication(phoneNo);
       Get.to(() => OTPScreen(phoneNumber: phoneNo));
     } else {
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               // Logo
               const Image(
                 image: AssetImage(
-                  'assets/icon/splash.png',
+                  'assets/icon/foot.png',
                 ),
                 height: 100,
               ),
@@ -66,9 +66,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               // Login
               const Text(
-                'Login ',
+                'Green Foot Login ',
                 style: TextStyle(
                   fontSize: 20,
+                  color: Colors.green
+
                 ),
               ),
               const SizedBox(height: 32,),
@@ -90,8 +92,10 @@ class _LoginPageState extends State<LoginPage> {
                         validator: (value) {
                           if(value==null || value.isEmpty) {
                             return 'It Cannot be Empty';
-                          } else if(value.length!=10) {
-                            return 'It should be 10 characters';
+                          } else if(value.startsWith("+65") && value.length!=11) {
+                            return 'It should have 11 characters';
+                          } else if(value.startsWith("+91") && value.length!=13) {
+                            return 'It should have 13 characters';
                           } else if(value.contains(' ')) {
                             return 'No Space Allowed';
                           } else if(value.contains("-")) {
@@ -100,10 +104,13 @@ class _LoginPageState extends State<LoginPage> {
                             return 'No \'.\' Allowed';
                           } else if(value.contains(",")) {
                             return 'No \',\' Allowed';
+                          } else if(!value.startsWith("+")) {
+                            return 'Enter Country Code also';
                           }
                           return null;
                         },
                         decoration: const InputDecoration(
+                          fillColor: Colors.black87,
                             border: InputBorder.none,
                             hintText: " Enter Phone",
                             hintStyle: TextStyle(
@@ -119,14 +126,14 @@ class _LoginPageState extends State<LoginPage> {
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(Icons.call,size: 18,),
+                                    Icon(Icons.call,size: 18,color: Colors.black,),
                                     SizedBox(width: 4,),
                                     Text(
-                                      "+91 :",
+                                      ":",
                                       style: TextStyle(
                                           fontSize: 16,
                                           color: Colors.black,
-                                          fontWeight: FontWeight.w400
+                                          fontWeight: FontWeight.bold
                                       ),
                                     ),
                                   ],
@@ -134,12 +141,12 @@ class _LoginPageState extends State<LoginPage> {
                               ],
                             )
                         ),
-                        keyboardType: TextInputType.number,
+                        // keyboardType: TextInputType.number,
                         // maxLength: 10,
                         controller: controller.phoneNumberController,
                         inputFormatters: [
-                          LengthLimitingTextInputFormatter(10),
-                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(13),
+                          // FilteringTextInputFormatter.digitsOnly,
                         ],
                       ),
                     ),
