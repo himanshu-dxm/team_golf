@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:sih_team_golf/screens/gamesDashboard/components/leaderboard.dart';
+import 'package:sih_team_golf/screens/gamesDashboard/components/singleTaskScreen.dart';
 
 
 import 'components/focusText.dart';
@@ -24,6 +25,43 @@ class _GamesDashboardState extends State<GamesDashboard> {
       _taskProgress = taskProgress;
       this.taskDone = taskDone;
     });
+  }
+
+  callbackTaskCard(context,title,description) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('$title'),
+          content: Text(
+              '$description'
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  if(!taskDone && _taskProgress <=0.75) {
+                    setState(() {
+                      taskDone = true;
+                      _totalCoins += 150;
+                      _taskProgress += 0.25;
+                    });
+                  }
+
+                  Navigator.pop(context);
+                },
+                child: Text('Yes')),
+            TextButton(
+                onPressed: () {
+
+                  setState(() {
+                    taskDone = false;
+                    _totalCoins -= 150;
+                    _taskProgress -= 0.25;
+                  });
+                  Navigator.pop(context);
+                },
+                child: Text('No'))
+          ],
+        ));
   }
   
   // final controller = Get.put(TransactionController());
@@ -197,6 +235,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   ],
                 ),
 
+
                 Container(
                   child: GestureDetector(
                     onTap: () {
@@ -262,6 +301,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                     ),
                   ),
                 ),
+
+
                 Container(
                   padding: EdgeInsets.all(8),
                   margin: EdgeInsets.all(8),
@@ -275,14 +316,16 @@ class _GamesDashboardState extends State<GamesDashboard> {
                   ),
                 ),
 
+
                 GestureDetector(
                   onTap: () {
                     showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
                           title: Text('Task Title'),
-                          content: Text(
-                              ' Task Description'
+                          content: MyTaskCard(
+                              title: 'Watch an Ad',
+                            description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
                           ),
                           actions: [
                             TextButton(
@@ -304,7 +347,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                   setState(() {
                                     taskDone = false;
                                     _totalCoins -= 150;
-                                    _taskProgress -= 0.25;
+                                    if(_taskProgress>=0.25) {
+                                      _taskProgress -= 0.25;
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -385,6 +430,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
                     ),
                   ),
                 ),
+
+
 
 
 

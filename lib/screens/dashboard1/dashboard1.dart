@@ -62,7 +62,7 @@ class _Dashboard1State extends State<Dashboard1> {
                 ),
 
                 FocusText(
-                    totalMonthlySpend: '${_totalCarbonSpent.toStringAsFixed(3)} C0\u2082 Kg'
+                    totalMonthlySpend: '${_totalCarbonSpent.toStringAsFixed(3)} KgCO\u2082eq'
                 ),
 
 
