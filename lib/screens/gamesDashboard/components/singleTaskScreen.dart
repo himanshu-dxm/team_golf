@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class MyTaskCard extends StatelessWidget {
   String title,description;
+  int id;
   MyTaskCard({
     super.key,
+    required this.id,
     required this.title,
     required this.description
   });
@@ -18,7 +20,11 @@ class MyTaskCard extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topCenter,
-              child: Image.asset("assets/images/books.jpg")
+              child: id==1 ?
+              Image.asset("assets/images/books.jpg") :
+              id==2 ?
+              Container() :
+              Container()
             ),
             Container(
               alignment: Alignment.bottomCenter,
@@ -27,6 +33,7 @@ class MyTaskCard extends StatelessWidget {
             Container(
               child: Text('$description'),
             ),
+            SizedBox(height: 40,),
             Container(
               child: Text('Did you Complete The task?'),
             )

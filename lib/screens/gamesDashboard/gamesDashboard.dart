@@ -23,10 +23,11 @@ class _GamesDashboardState extends State<GamesDashboard> {
     setState(() {
       _totalCoins =  totalCoins;
       _taskProgress = taskProgress;
-      this.taskDone = taskDone;
+      this.task1Done = taskDone;
     });
   }
 
+  /*
   callbackTaskCard(context,title,description) {
     showDialog(
         context: context,
@@ -63,6 +64,8 @@ class _GamesDashboardState extends State<GamesDashboard> {
           ],
         ));
   }
+
+   */
   
   // final controller = Get.put(TransactionController());
 
@@ -70,7 +73,10 @@ class _GamesDashboardState extends State<GamesDashboard> {
   double tmp=1000;
   double _taskProgress = 0.10;
 
-  bool taskDone = false;
+  bool task1Done = false;
+  bool task2Done = false;
+  bool task3Done = false;
+  bool task4Done = false;
 
   @override
   void initState() {
@@ -86,100 +92,42 @@ class _GamesDashboardState extends State<GamesDashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(color: Colors.black87),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Top Coins and Profile
-                // Header.header(context , 1000, "Hello"),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(color: Colors.black87),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Top Coins and Profile
+              // Header.header(context , 1000, "Hello"),
 
-                Header(totalCoins: _totalCoins),
-
-
-                const SizedBox(
-                  height: 8,
-                ),
-
-                FocusText(
-                    totalMonthlySpend: '$_totalCoins Points'
-                ),
+              Header(totalCoins: _totalCoins),
 
 
-                const SizedBox(
-                  height: 8,
-                ),
+              const SizedBox(
+                height: 8,
+              ),
+
+              FocusText(
+                  totalMonthlySpend: '$_totalCoins Points'
+              ),
 
 
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(()=>LeaderBoardScreen());
-                        },
-                        child: Card(
-                          margin: const EdgeInsets.all(8),
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18)),
-                          // color: Colors.white12,
-                          color: Colors.grey[800],
-                          clipBehavior: Clip.antiAlias,
-                          child: Container(
-                            // width: double.infinity,
-                            height: MediaQuery.of(context).size.height / 6,
-                            decoration: const BoxDecoration(
-                                color: Colors.black12
-                            ),
-                            padding: const EdgeInsets.all(8),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        "5\u1d57\u02b0",
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
-                                        // '5M CO\u2082eq',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                    Icon(Icons.circle,)
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  "Rank",
-                                  // 'Savings',
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontSize: 18,
-                                      fontStyle: FontStyle.italic),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+              const SizedBox(
+                height: 8,
+              ),
 
-                    Expanded(
+
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(()=>LeaderBoardScreen());
+                      },
                       child: Card(
                         margin: const EdgeInsets.all(8),
                         elevation: 8,
@@ -203,24 +151,26 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    "5423 ",
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    // '5M CO\u2082eq',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold),
+                                  Expanded(
+                                    child: Text(
+                                      "5\u1d57\u02b0",
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      // '5M CO\u2082eq',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
-                                  Icon(Icons.circle)
+                                  Icon(Icons.circle,)
                                 ],
                               ),
                               SizedBox(
                                 height: 2,
                               ),
                               Text(
-                                "Steps Walked",
+                                "Rank",
                                 // 'Savings',
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -232,15 +182,9 @@ class _GamesDashboardState extends State<GamesDashboard> {
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
 
-
-                Container(
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.to(()=>LeaderBoardScreen());
-                    },
+                  Expanded(
                     child: Card(
                       margin: const EdgeInsets.all(8),
                       elevation: 8,
@@ -260,35 +204,28 @@ class _GamesDashboardState extends State<GamesDashboard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: Text(
-                                "${(_taskProgress*100).toStringAsFixed(0)}%",
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                                // '5M CO\u2082eq',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Expanded(
-                                child: Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: LinearPercentIndicator(
-                                    lineHeight: 40,
-                                    percent : _taskProgress,
-                                    progressColor: Colors.green,
-                                    backgroundColor: Colors.black87,
-                                    animation: true,
-                                    animationDuration: 1000,
-                                    barRadius: Radius.circular(30),
-                                  ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "5423 ",
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                  // '5M CO\u2082eq',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
                                 ),
+                                Icon(Icons.circle)
+                              ],
                             ),
-                            SizedBox(height: 2,),
+                            SizedBox(
+                              height: 2,
+                            ),
                             Text(
-                              "Current Progress",
+                              "Steps Walked",
                               // 'Savings',
                               style: TextStyle(
                                   color: Colors.white70,
@@ -300,203 +237,635 @@ class _GamesDashboardState extends State<GamesDashboard> {
                       ),
                     ),
                   ),
-                ),
+                ],
+              ),
 
 
-                Container(
-                  padding: EdgeInsets.all(8),
-                  margin: EdgeInsets.all(8),
-                  child: Text(
-                    "Today's Tasks",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white
+              Container(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(()=>LeaderBoardScreen());
+                  },
+                  child: Card(
+                    margin: const EdgeInsets.all(8),
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18)),
+                    // color: Colors.white12,
+                    color: Colors.grey[800],
+                    clipBehavior: Clip.antiAlias,
+                    child: Container(
+                      // width: double.infinity,
+                      height: MediaQuery.of(context).size.height / 6,
+                      decoration: const BoxDecoration(
+                          color: Colors.black12
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              "${(_taskProgress*100).toStringAsFixed(0)}%",
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              // '5M CO\u2082eq',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(
+                              child: Container(
+                                padding: EdgeInsets.all(8),
+                                child: LinearPercentIndicator(
+                                  lineHeight: 40,
+                                  percent : _taskProgress,
+                                  progressColor: Colors.green,
+                                  backgroundColor: Colors.black87,
+                                  animation: true,
+                                  animationDuration: 1000,
+                                  barRadius: Radius.circular(30),
+                                ),
+                              ),
+                          ),
+                          SizedBox(height: 2,),
+                          Text(
+                            "Current Progress",
+                            // 'Savings',
+                            style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 18,
+                                fontStyle: FontStyle.italic),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
+              ),
 
 
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text('Task Title'),
-                          content: MyTaskCard(
-                              title: 'Watch an Ad',
-                            description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+              Container(
+                padding: EdgeInsets.all(8),
+                margin: EdgeInsets.all(8),
+                child: Text(
+                  "Today's Tasks",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white
+                  ),
+                ),
+              ),
+
+
+              // Task Lists
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+
+                      // Task 1
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                title: Text('Task Title'),
+                                content: MyTaskCard(
+                                  id: 1,
+                                    title: 'Watch an Ad',
+                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        if(!task1Done && _taskProgress <=0.75) {
+                                          setState(() {
+                                            task1Done = true;
+                                            _totalCoins += 150;
+                                            _taskProgress += 0.25;
+                                          });
+                                        }
+
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Yes')),
+                                  TextButton(
+                                      onPressed: () {
+
+                                        setState(() {
+                                          task1Done = false;
+                                          _totalCoins -= 150;
+                                          if(_taskProgress>=0.25) {
+                                            _taskProgress -= 0.25;
+                                          }
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('No'))
+                                ],
+                              ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(8),
+                          width: MediaQuery.of(context).size.width*0.95,
+                          decoration: BoxDecoration(
+                              color: Colors.grey[800],
+                              borderRadius: BorderRadius.all(Radius.circular(10))
                           ),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  if(!taskDone && _taskProgress <=0.75) {
+                          child: Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                          '+150 ',
+                                      )
+                                    ),
+                                  ),
+
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    // margin: EdgeInsets.all(8),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Task 1',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18
+                                          ),
+                                        ),
+                                        Text(
+                                          "Walk | Related To walking" ,
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Colors.white60
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerRight,
+                                  padding: EdgeInsets.all(8),
+                                  margin: EdgeInsets.all(8),
+                                  child: Icon(
+                                    Icons.circle_rounded,
+                                    // size: 24,
+                                    color: task1Done ? Colors.green : Colors.white,
+                                  )
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+
+
+                      // Task 2
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                title: Text('Task Title 2'),
+                                content: MyTaskCard(
+                                  id: 2,
+                                  title: 'Watch an Ad',
+                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        if(!task2Done && _taskProgress <=0.75) {
+                                          setState(() {
+                                            task2Done = true;
+                                            _totalCoins += 150;
+                                            _taskProgress += 0.25;
+                                          });
+                                        }
+
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Yes')),
+                                  TextButton(
+                                      onPressed: () {
+
+                                        setState(() {
+                                          task2Done = false;
+                                          _totalCoins -= 150;
+                                          if(_taskProgress>=0.25) {
+                                            _taskProgress -= 0.25;
+                                          }
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('No'))
+                                ],
+                              ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(8),
+                          width: MediaQuery.of(context).size.width*0.95,
+                          decoration: BoxDecoration(
+                              color: Colors.grey[800],
+                              borderRadius: BorderRadius.all(Radius.circular(10))
+                          ),
+                          child: Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                          '+150 ',
+                                        )
+                                    ),
+                                  ),
+
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    // margin: EdgeInsets.all(8),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Task 2',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18
+                                          ),
+                                        ),
+                                        Text(
+                                          "Walk | Short Decsription" ,
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Colors.white60
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Expanded(
+                                child: Container(
+                                    alignment: Alignment.centerRight,
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    child: Icon(
+                                      Icons.circle_rounded,
+                                      // size: 24,
+                                      color: task2Done ? Colors.green : Colors.white,
+                                    )
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+
+
+                      // Task 3
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                title: Text('Task Title'),
+                                content: MyTaskCard(
+                                  id: 3,
+                                  title: 'Watch an Ad',
+                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        if(!task3Done && _taskProgress <=0.75) {
+                                          setState(() {
+                                            task3Done = true;
+                                            _totalCoins += 150;
+                                            _taskProgress += 0.25;
+                                          });
+                                        }
+
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Yes')),
+                                  TextButton(
+                                      onPressed: () {
+
+                                        setState(() {
+                                          task3Done = false;
+                                          _totalCoins -= 150;
+                                          if(_taskProgress>=0.25) {
+                                            _taskProgress -= 0.25;
+                                          }
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('No'))
+                                ],
+                              ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(8),
+                          width: MediaQuery.of(context).size.width*0.95,
+                          decoration: BoxDecoration(
+                              color: Colors.grey[800],
+                              borderRadius: BorderRadius.all(Radius.circular(10))
+                          ),
+                          child: Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                          '+150 ',
+                                        )
+                                    ),
+                                  ),
+
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    // margin: EdgeInsets.all(8),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Task 1',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18
+                                          ),
+                                        ),
+                                        Text(
+                                          "Walk | Short Decsription" ,
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Colors.white60
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Expanded(
+                                child: Container(
+                                    alignment: Alignment.centerRight,
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    child: Icon(
+                                      Icons.circle_rounded,
+                                      // size: 24,
+                                      color: task3Done ? Colors.green : Colors.white,
+                                    )
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+
+
+                      // Task 4
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                title: Text('Task Title'),
+                                content: MyTaskCard(
+                                  id: 3,
+                                  title: 'Watch an Ad',
+                                  description: 'Learn something new about the environment today! In this app, we have curated videos on climate change, environmental protection, conservation and many more for your enjoyment and learning! Head on over to the reels content to start learning today!',
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        if(!task3Done && _taskProgress <=0.75) {
+                                          setState(() {
+                                            task4Done = true;
+                                            _totalCoins += 150;
+                                            _taskProgress += 0.25;
+                                          });
+                                        }
+
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Yes')),
+                                  TextButton(
+                                      onPressed: () {
+
+                                        setState(() {
+                                          task4Done = false;
+                                          _totalCoins -= 150;
+                                          if(_taskProgress>=0.25) {
+                                            _taskProgress -= 0.25;
+                                          }
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('No'))
+                                ],
+                              ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(8),
+                          width: MediaQuery.of(context).size.width*0.95,
+                          decoration: BoxDecoration(
+                              color: Colors.grey[800],
+                              borderRadius: BorderRadius.all(Radius.circular(10))
+                          ),
+                          child: Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                          '+150 ',
+                                        )
+                                    ),
+                                  ),
+
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    // margin: EdgeInsets.all(8),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Task 4',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18
+                                          ),
+                                        ),
+                                        Text(
+                                          "Walk | Short Decsription" ,
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Colors.white60
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Expanded(
+                                child: Container(
+                                    alignment: Alignment.centerRight,
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(8),
+                                    child: Icon(
+                                      Icons.circle_rounded,
+                                      // size: 24,
+                                      color: task4Done ? Colors.green : Colors.white,
+                                    )
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+
+
+
+
+              // sample alertDialog button
+              /*
+              MaterialButton(
+                onPressed: () {
+
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: Text('Task Title'),
+                            content: Text(
+                                ' Task Description \n Did you finish this task?',
+                            ),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
                                     setState(() {
                                       taskDone = true;
                                       _totalCoins += 150;
-                                      _taskProgress += 0.25;
                                     });
-                                  }
 
-                                  Navigator.pop(context);
-                                },
-                                child: Text('Yes')),
-                            TextButton(
-                                onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('Yes')),
+                              TextButton(
+                                  onPressed: () {
 
-                                  setState(() {
-                                    taskDone = false;
-                                    _totalCoins -= 150;
-                                    if(_taskProgress>=0.25) {
-                                      _taskProgress -= 0.25;
-                                    }
-                                  });
-                                  Navigator.pop(context);
-                                },
-                                child: Text('No'))
-                          ],
-                        ));
-                  },
-                  child: Container(
-                    margin: EdgeInsets.all(8),
-                    width: MediaQuery.of(context).size.width*0.95,
-                    decoration: BoxDecoration(
-                        color: Colors.grey[800],
-                        borderRadius: BorderRadius.all(Radius.circular(10))
-                    ),
-                    child: Row(
-                      // mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              margin: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.all(Radius.circular(16)),
+                                    setState(() {
+                                      taskDone = false;
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('No'))
+                            ],
+                          ));
+                },
+                child: Text('Press me'),
+              ),
 
-                              ),
-                              child: Center(
-                                child: Text(
-                                    '+150 ',
-                                )
-                              ),
-                            ),
+               */
 
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              // margin: EdgeInsets.all(8),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Task 1',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18
-                                    ),
-                                  ),
-                                  Text(
-                                    "Walk | Short Decsription" ,
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        color: Colors.white60
-                                    ),
-                                  )
+              // progress bar
 
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.centerRight,
-                            padding: EdgeInsets.all(8),
-                            margin: EdgeInsets.all(8),
-                            child: Icon(
-                              Icons.circle_rounded,
-                              // size: 24,
-                              color: taskDone ? Colors.green : Colors.white,
-                            )
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+              /*
+              Container(
+                padding: EdgeInsets.all(8),
+                child: LinearPercentIndicator(
+                  lineHeight: 40,
+                  percent :0.45,
+                  progressColor: Colors.grey[800],
+                  backgroundColor: Colors.white,
+                  animation: true,
+                  animationDuration: 1000,
+                  barRadius: Radius.circular(30),
                 ),
+              ),
 
+               */
 
-
-
-
-
-
-                // sample alertDialog button
-                /*
-                MaterialButton(
-                  onPressed: () {
-
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                              title: Text('Task Title'),
-                              content: Text(
-                                  ' Task Description \n Did you finish this task?',
-                              ),
-                              actions: [
-                                TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        taskDone = true;
-                                        _totalCoins += 150;
-                                      });
-
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text('Yes')),
-                                TextButton(
-                                    onPressed: () {
-
-                                      setState(() {
-                                        taskDone = false;
-                                      });
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text('No'))
-                              ],
-                            ));
-                  },
-                  child: Text('Press me'),
-                ),
-
-                 */
-
-                // progress bar
-
-                /*
-                Container(
-                  padding: EdgeInsets.all(8),
-                  child: LinearPercentIndicator(
-                    lineHeight: 40,
-                    percent :0.45,
-                    progressColor: Colors.grey[800],
-                    backgroundColor: Colors.white,
-                    animation: true,
-                    animationDuration: 1000,
-                    barRadius: Radius.circular(30),
-                  ),
-                ),
-
-                 */
-
-              ],
-            ),
+            ],
           ),
         ),
       ),

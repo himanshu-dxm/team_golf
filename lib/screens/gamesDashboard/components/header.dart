@@ -16,8 +16,8 @@ class Header extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
-            'Some App Motto and tagline',
-            style: TextStyle(color: Colors.green),
+            'Play and Earn Here',
+            style: TextStyle(color: Colors.green,fontSize: 24),
           ),
           GestureDetector(
             onTap: () {
