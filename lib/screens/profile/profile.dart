@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sih_team_golf/screens/dashboardHindi/dashboardHindi.dart';
 
 import '../../services/auth.dart';
 
@@ -87,19 +89,24 @@ class Profile extends StatelessWidget {
                       ),
                       ),
                       Spacer(),
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        color: Colors.grey[800],
-                        width: MediaQuery.of(context).size.width/2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text('English',
-                          style: TextStyle(
-                            fontSize: 20,
-                            ),),
-                            Icon(Icons.arrow_drop_down_circle_outlined)
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(()=>DashboardHindi());
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          color: Colors.grey[800],
+                          width: MediaQuery.of(context).size.width/2,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text('Hindi',
+                            style: TextStyle(
+                              fontSize: 20,
+                              ),),
+                              Icon(Icons.arrow_drop_down_circle_outlined)
+                            ],
+                          ),
                         ),
                       )
                     ],
