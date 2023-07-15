@@ -10,18 +10,18 @@ class CenterCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> categories = [
-      'Clothes',
       'Food',
+      'Clothes',
       'Cosmetics',
       'Travel',
       'Gadgets'
     ];
     List<int> values = [
-      25,
       31,
+      25,
+      24,
+      11,
       9,
-      12,
-      26,
     ];
     return Container(
       // margin: EdgeInsets.all(8),

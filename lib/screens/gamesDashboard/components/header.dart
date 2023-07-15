@@ -31,7 +31,7 @@ class Header extends StatelessWidget {
                     borderRadius:
                     BorderRadius.all(Radius.circular(18))
                 ),
-                child: Icon(
+                child: const Icon(
                     IconData(0xf06bd, fontFamily: 'MaterialIcons'),
                   color: Colors.black87,
                   )

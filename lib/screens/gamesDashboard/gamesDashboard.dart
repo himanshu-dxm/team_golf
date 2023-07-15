@@ -336,7 +336,7 @@ class _GamesDashboardState extends State<GamesDashboard> {
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                 title: const Text('Cut Down Dairy Products'),
                                 content: MyTaskCard(
-                                  id: 3,
+                                  id: 4,
                                   title: 'Cut Down on Dairy Products',
                                   description: 'Dairy products are one of the most carbon intensive products due to change in land use, release of methane from cow’s digestion process and the use of pesticides and fertilizers for their food. \n\n\tDairy is 3x more carbon intensive than other plant-based milk!',
                                   trees: 0.1,
