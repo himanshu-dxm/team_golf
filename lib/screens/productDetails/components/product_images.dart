@@ -34,6 +34,7 @@ class _ProductImagesState extends State<ProductImages> {
           ),
         ),
         // SizedBox(height: getProportionateScreenWidth(20)),
+        /*
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -41,6 +42,8 @@ class _ProductImagesState extends State<ProductImages> {
                     (index) => buildSmallProductPreview(index)),
           ],
         )
+
+         */
       ],
     );
   }

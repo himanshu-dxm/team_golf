@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class TransactionCard extends StatelessWidget {
   final double carbonAmount;
   final String title,category,date;
+  final String productImage;
   const TransactionCard({
     super.key,
     required this.carbonAmount,
     required this.title,
     required this.category,
-    required this.date
+    required this.date,
+    required this.productImage
   });
 
   @override
@@ -34,10 +36,11 @@ class TransactionCard extends StatelessWidget {
 
                 ),
                 child: Center(
-                  child: Icon(
-                    Icons.apple,
-                    color: Colors.white,
-                    size: 40,),
+                  child: Image.network(productImage,scale: 10,),
+                  // child: Icon(
+                  //   Icons.apple,
+                  //   color: Colors.white,
+                  //   size: 40,),
                 ),
               ),
 

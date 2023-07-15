@@ -25,7 +25,7 @@ class ProductDescription extends StatelessWidget {
               EdgeInsets.only(
                   left: getProportionateScreenWidth(20),
                 right: getProportionateScreenWidth(20),
-                top: getProportionateScreenWidth(10)
+                top: getProportionateScreenWidth(20)
               ),
           child: Text(product.productName,
               style: TextStyle(
@@ -118,7 +118,7 @@ class ProductDescription extends StatelessWidget {
           padding: EdgeInsets.only(
             left: getProportionateScreenWidth(20),
             right: getProportionateScreenWidth(64),
-            top: getProportionateScreenHeight(16),
+            top: getProportionateScreenHeight(26),
           ),
           child: Text(
             "Total Carbon : ${product.totalCarbon.toStringAsFixed(2)} KgCO\u2082eq",

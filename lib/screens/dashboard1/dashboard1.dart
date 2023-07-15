@@ -155,7 +155,8 @@ class _Dashboard1State extends State<Dashboard1> {
                                         carbonAmount: snapshot.data![index].totalCarbon,
                                         title: snapshot.data![index].productName,
                                         category: snapshot.data![index].description,
-                                        date: snapshot.data![index].weight.toString()
+                                        date: snapshot.data![index].weight.toString(),
+                                        productImage: snapshot.data![index].productImage,
                                     ),
 
                                   ],

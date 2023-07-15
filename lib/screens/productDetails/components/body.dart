@@ -66,11 +66,11 @@ class Body extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: SizeConfig.screenWidth * 0.15,
                       right: SizeConfig.screenWidth * 0.15,
-                      bottom: getProportionateScreenWidth(60),
-                      top: getProportionateScreenWidth(20),
+                      bottom: getProportionateScreenWidth(70),
+                      top: getProportionateScreenWidth(30),
                     ),
                     child: DefaultButton(
-                      text: "Buy",
+                      text: "Click if you bought this",
                       press: () {
                         print("Buy Tapped");
                         TransactionController.
@@ -79,7 +79,10 @@ class Body extends StatelessWidget {
                         whenComplete(
                                 () {
                                   print("Transaction Added ");
-                                  Get.to(() => const HomeScreen());
+                                  Navigator.pushReplacement(context,
+                                    MaterialPageRoute(builder: (ctx)=>HomeScreen())
+                                  );
+                                  // Get.to(() => const HomeScreen());
                                 }
                         );
                       },
